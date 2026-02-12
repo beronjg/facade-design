@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facade Designer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        void: '#0B0E14', 
+                        panel: '#151B25', 
+                        surface: '#1E2633', 
+                        neon: '#22D3EE', 
+                        concrete: '#94A3B8',
+                        aluminium: '#475569', 
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1E2633 1px, transparent 1px), linear-gradient(to bottom, #1E2633 1px, transparent 1px)",
+                        'glass-reflection': "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 60%)",
+                    },
+                    boxShadow: {
+                        'glass-edge': 'inset 0 1px 1px 0 rgba(255, 255, 255, 0.1)',
+                        'glow': '0 0 20px rgba(34, 211, 238, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* GLASS PANEL UTILITY */
+        .glass-panel {
+            background-color: rgba(21, 27, 37, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* TEXT SELECTION COLOR */
+        ::selection {
+            background: #22D3EE;
+            color: #0B0E14;
+        }
+
+        /* ANIMATIONS */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-void text-white font-sans antialiased overflow-x-hidden selection:bg-neon selection:text-void">
+
+    <div class="fixed inset-0 bg-grid-pattern bg-[length:40px_40px] opacity-[0.07] pointer-events-none"></div>
+
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-neon rounded-full shadow-glow animate-pulse"></div>
+                <span class="font-mono text-sm font-bold tracking-widest text-white">YOUR_NAME<span class="text-concrete">.dwg</span></span>
+            </div>
+            
+            <div class="hidden md:flex gap-8 items-center">
+                <a href="#home" class="font-mono text-xs text-white hover:text-neon transition-colors">./HOME</a>
+                <a href="#projects" class="font-mono text-xs text-concrete hover:text-neon transition-colors">./PROJECTS</a>
+                <a href="#experience" class="font-mono text-xs text-concrete hover:text-neon transition-colors">./EXPERIENCE</a>
+            </div>
+
+            <a href="#" class="group flex items-center gap-2 font-mono text-xs border border-aluminium/50 bg-surface/20 px-4 py-2 rounded text-white hover:border-neon hover:text-neon transition-all">
+                <span>RESUME_V2.pdf</span>
+                <svg class="w-3 h-3 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+        </div>
+    </nav>
+
+    <section id="home" class="relative min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center w-full">
+            
+            <div class="space-y-6 relative z-10 order-2 lg:order-1">
+                
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded border border-neon/20 bg-neon/5">
+                    <span class="font-mono text-[10px] text-neon uppercase tracking-wide">Facade Design // UI Engineering</span>
+                </div>
+
+                <div>
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight tracking-tight text-white mb-2">
+                        Your Name
+                    </h1>
+                    <h2 class="font-mono text-xl text-concrete">
+                        &lt;<span class="text-neon">Facade Designer</span> /&gt;
+                    </h2>
+                </div>
+
+                <p class="text-lg text-concrete font-light leading-relaxed max-w-lg border-l-2 border-surface pl-6">
+                    I design high-performance building skins using parametric tools and user-centric principles. Bridging the gap between <strong class="text-white">Architectural Engineering</strong> and <strong class="text-white">Digital Experience</strong>.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 pt-4">
+                    <a href="#projects" class="px-8 py-4 bg-neon text-void font-mono text-sm font-bold rounded hover:bg-white transition-colors shadow-glow">
+                        VIEW_PORTFOLIO
+                    </a>
+                    <a href="#" class="px-8 py-4 border border-surface text-concrete hover:text-white hover:border-neon font-mono text-sm rounded transition-all">
+                        CONTACT_ME
+                    </a>
+                </div>
+
+                <div class="pt-8 flex gap-6 text-concrete opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                    <span class="text-xs font-mono">RHINO 7</span>
+                    <span class="text-xs font-mono">GRASSHOPPER</span>
+                    <span class="text-xs font-mono">REVIT</span>
+                    <span class="text-xs font-mono">HTML/CSS</span>
+                </div>
+            </div>
+
+            <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end">
+                
+                <div class="relative w-80 h-96 lg:w-96 lg:h-[500px] border-2 border-surface bg-panel/50 p-4 animate-float">
+                    
+                    <div class="absolute -left-8 top-0 h-full w-px bg-concrete/30 flex flex-col justify-center items-center gap-2">
+                        <div class="w-px h-10 bg-concrete"></div>
+                        <span class="text-[10px] font-mono -rotate-90 text-concrete">HEIGHT: 500mm</span>
+                        <div class="w-px h-10 bg-concrete"></div>
+                    </div>
+
+                    <div class="relative w-full h-full overflow-hidden border border-neon/30 grayscale hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 bg-glass-reflection z-20 pointer-events-none opacity-50"></div>
+                        
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Profile" 
+                             class="w-full h-full object-cover">
+                        
+                        <div class="absolute bottom-0 right-0 bg-void/80 border-t border-l border-neon/30 px-3 py-2 z-30">
+                            <p class="font-mono text-[10px] text-neon">IMG_REF: 01</p>
+                        </div>
+                    </div>
+
+                    <div class="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-neon"></div>
+                    <div class="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-neon"></div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <!-- <section id="connect" class="relative z-20 -mt-24 pb-24 pointer-events-none">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pointer-events-auto">
+
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="group relative bg-panel/80 backdrop-blur-xl border border-white/10 rounded-xl p-5 shadow-2xl hover:-translate-y-2 hover:border-neon/50 transition-all duration-300">
+                    <div class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-[#0077b5]/20 flex items-center justify-center text-[#0077b5] border border-[#0077b5]/30 group-hover:bg-[#0077b5] group-hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-sm font-bold text-white group-hover:text-neon transition-colors">LinkedIn</h3>
+                            <p class="text-xs text-concrete mt-1">Pending Connection Request...</p>
+                            <div class="mt-3 inline-flex items-center gap-2 text-[10px] font-mono text-neon border border-neon/20 bg-neon/5 px-2 py-1 rounded">
+                                <span>ACCEPT_INVITE</span>
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="mailto:your.email@example.com" class="group relative bg-panel/80 backdrop-blur-xl border border-white/10 rounded-xl p-5 shadow-2xl hover:-translate-y-2 hover:border-yellow-500/50 transition-all duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-yellow-500/20 flex items-center justify-center text-yellow-500 border border-yellow-500/30 group-hover:bg-yellow-500 group-hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-sm font-bold text-white group-hover:text-yellow-400 transition-colors">Inbox</h3>
+                            <p class="text-xs text-concrete mt-1">1 New Message Draft</p>
+                            <div class="mt-3 inline-flex items-center gap-2 text-[10px] font-mono text-yellow-500 border border-yellow-500/20 bg-yellow-500/5 px-2 py-1 rounded">
+                                <span>SEND_INQUIRY</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" class="group relative bg-panel/80 backdrop-blur-xl border border-white/10 rounded-xl p-5 shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300">
+                    <div class="absolute bottom-0 left-0 h-1 bg-blue-500 transition-all duration-1000 w-0 group-hover:w-full rounded-b-xl"></div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-600/20 flex items-center justify-center text-blue-500 border border-blue-500/30 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.626 0-3.91 2.325-5.763 5.564-5.763 3.256 0 5.222 1.658 5.222 4.363 0 .422-.041.644-.085 1.026h-8.001c.148 1.971 1.296 3.002 3.002 3.002 1.571 0 2.414-.668 2.812-1.396h2.151zm-4.996-4.502c-.046-1.509-1.077-2.223-2.396-2.223-1.396 0-2.338.756-2.514 2.223h4.91zm-13.73-8.498h5.366c2.812 0 4.609 1.579 4.609 4.214 0 1.62-.832 2.703-2.073 3.32 1.523.633 2.518 1.944 2.518 3.73 0 3.02-2.185 4.736-5.041 4.736h-5.379v-16zm4.845 6.273c1.375 0 2.149-.607 2.149-1.802 0-1.121-.733-1.841-2.073-1.841h-2.172v3.643h2.096zm.441 6.326c1.559 0 2.454-.725 2.454-2.074 0-1.284-.814-1.928-2.228-1.928h-2.267v4.002h2.041z"/></svg>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Behance</h3>
+                            <p class="text-xs text-concrete mt-1">Latest Case Study: Uploaded</p>
+                            <div class="mt-3 inline-flex items-center gap-2 text-[10px] font-mono text-blue-400 border border-blue-400/20 bg-blue-500/5 px-2 py-1 rounded">
+                                <span>VIEW_GALLERY</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <div class="mt-8 overflow-hidden flex justify-center">
+                <div class="inline-flex items-center gap-4 text-[10px] font-mono text-concrete/40 uppercase tracking-[0.2em] animate-pulse">
+                    <span>/// System: Online</span>
+                    <span>/// Location: Bangalore</span>
+                    <span>/// Availability: Open</span>
+                </div>
+            </div>
+
+        </div>
+    </section> -->
+
+    <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end h-[500px] w-full" id="assemblyContainer">
+                
+                <div class="relative w-full h-full border-2 border-surface bg-panel/80 backdrop-blur-md overflow-hidden rounded-xl shadow-2xl group">
+                    
+                    <div class="absolute inset-0 bg-grid-pattern bg-[length:20px_20px] opacity-20 pointer-events-none"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neon/5 to-transparent h-[200%] w-full animate-[scan_4s_linear_infinite] pointer-events-none opacity-50"></div>
+
+                    <div class="absolute top-0 left-0 w-full flex justify-between items-center p-4 border-b border-white/10 z-30 bg-void/80">
+                        <div class="flex items-center gap-2">
+                            <div id="statusLight" class="w-2 h-2 bg-red-500 rounded-full shadow-glow transition-colors duration-500"></div>
+                            <span id="statusText" class="font-mono text-[10px] text-concrete uppercase tracking-widest">System Offline // Awaiting Input</span>
+                        </div>
+                        <div class="font-mono text-[10px] text-neon">DETAIL_REF: DGU-XT-01</div>
+                    </div>
+                    
+                    <div class="relative w-full h-full flex items-center justify-center pt-16 pl-12 perspective-1000">
+
+                        <div class="assembly-layer absolute left-0 bottom-20 w-3/4 h-16 bg-concrete/20 border-y-2 border-concrete/50 transform -translate-x-[150%] transition-all duration-700 ease-out z-10" data-step="1">
+                            <div class="absolute inset-0 opacity-30 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0JyBoZWlnaHQ9JzQnIHZpZXdCb3g9JzAgMCA0IDQnPjxwYXRoIGZpbGw9JyM5QzkyQUMnIGZpbGwtb3BhY2l0eT0nMC40JyBkPSdNMSAzaDF2MUgxVjN6bTItMmgxdjFIM1YxeicvPjwvc3ZnPg==')]"></div>
+                             <div class="absolute -top-8 left-4 font-mono text-[10px] text-concrete opacity-0 transition-opacity duration-700 delay-300 label">
+                                 <span class="text-neon">></span> RC_SLAB_200MM
+                                 <div class="h-px w-12 bg-neon/50 mt-1"></div>
+                             </div>
+                        </div>
+
+                        <div class="assembly-layer absolute left-24 bottom-36 w-12 h-24 bg-aluminium/80 border-2 border-aluminium transform -translate-y-[200%] opacity-0 transition-all duration-700 ease-out z-20 shadow-lg" data-step="2">
+                             <div class="absolute top-2 left-2 w-2 h-2 rounded-full bg-white/50 border border-white"></div>
+                             <div class="absolute bottom-2 left-2 w-2 h-2 rounded-full bg-white/50 border border-white"></div>
+                             <div class="absolute -right-32 top-4 font-mono text-[10px] text-concrete opacity-0 transition-opacity duration-700 delay-300 label flex items-center">
+                                <div class="w-8 h-px bg-neon/50 mr-2"></div>
+                                <span>M16_STEEL_BRACKET</span>
+                             </div>
+                        </div>
+
+                        <div class="assembly-layer absolute left-36 bottom-10 w-16 h-[350px] bg-panel border-x-2 border-neon/50 backdrop-blur-xl transform translate-x-[200%] opacity-0 transition-all duration-700 ease-out z-30 shadow-[0_0_30px_rgba(34,211,238,0.1)]" data-step="3">
+                            <div class="absolute left-1/2 top-0 bottom-0 w-px bg-neon/20"></div>
+                            <div class="absolute top-1/4 left-0 right-0 h-px bg-neon/20"></div>
+                            <div class="absolute top-3/4 left-0 right-0 h-px bg-neon/20"></div>
+                            <div class="absolute -left-36 top-1/2 font-mono text-[10px] text-concrete opacity-0 transition-opacity duration-700 delay-300 label flex items-center justify-end w-32">
+                                <span>ALU_MULLION_150x60</span>
+                                <div class="w-8 h-px bg-neon/50 ml-2"></div>
+                             </div>
+                        </div>
+
+                        <div class="assembly-layer absolute left-52 bottom-16 w-48 h-[300px] bg-neon/10 border border-neon/60 backdrop-blur-sm transform scale-50 opacity-0 transition-all duration-1000 ease-out z-40" data-step="4">
+                            <div class="absolute inset-0 bg-glass-reflection opacity-70"></div>
+                            
+                            <div class="absolute bottom-4 left-4 font-mono text-[9px] text-neon/80 leading-tight opacity-0 transition-opacity duration-700 delay-500 label">
+                                U-VAL: 1.1 W/m²K<br>
+                                VLT: 62%<br>
+                                SHGC: 0.35
+                            </div>
+                             <div class="absolute -top-10 right-0 font-mono text-[10px] text-white opacity-0 transition-opacity duration-700 delay-300 label text-right">
+                                 DOUBLE_GLAZED_UNIT
+                                 <div class="h-px w-full bg-neon/50 mt-1 animate-pulse"></div>
+                             </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="absolute inset-0 flex items-center justify-center bg-void/60 z-50 transition-opacity duration-500 pointer-events-none group-hover:opacity-0">
+                        <p class="font-mono text-xs text-neon flex items-center gap-2 border border-neon/30 px-4 py-2 rounded-full bg-void/80">
+                            <svg class="w-4 h-4 animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            MOVE CURSOR TO ASSEMBLE
+                        </svg>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <style>
+                /* Scanline animation */
+                @keyframes scan {
+                    0% { transform: translateY(-50%); }
+                    100% { transform: translateY(50%); }
+                }
+                @keyframes bounce-x {
+                     0%, 100% { transform: translateX(0); }
+                     50% { transform: translateX(5px); }
+                }
+
+                /* The 'Active' states for the layers when they slide in */
+                .assembly-layer.active-step {
+                    transform: translate(0, 0) scale(1) !important;
+                    opacity: 1 !important;
+                }
+                /* Show labels only when active */
+                .assembly-layer.active-step .label {
+                    opacity: 1 !important;
+                }
+                .perspective-1000 {
+                    perspective: 1000px;
+                }
+            </style>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const container = document.getElementById('assemblyContainer');
+                    const layers = document.querySelectorAll('.assembly-layer');
+                    const statusLight = document.getElementById('statusLight');
+                    const statusText = document.getElementById('statusText');
+                    const totalSteps = layers.length;
+
+                    // Function to update the assembly based on percentage
+                    function updateAssembly(percentage) {
+                        // Calculate which step we should be on based on mouse position (1 to totalSteps)
+                        // We multiply by totalSteps + 0.5 to make the last step easier to reach
+                        let currentStep = Math.floor(percentage * (totalSteps + 0.5));
+                        // Clamp value between 0 and totalSteps
+                        currentStep = Math.min(Math.max(currentStep, 0), totalSteps);
+
+                        // Update Layers
+                        layers.forEach(layer => {
+                            const layerStep = parseInt(layer.getAttribute('data-step'));
+                            if (layerStep <= currentStep) {
+                                layer.classList.add('active-step');
+                            } else {
+                                layer.classList.remove('active-step');
+                            }
+                        });
+
+                        // Update Status Bar
+                        if (currentStep === 0) {
+                            statusLight.classList.remove('bg-green-500', 'bg-yellow-500');
+                            statusLight.classList.add('bg-red-500');
+                            statusText.textContent = "System Offline // Awaiting Input";
+                        } else if (currentStep < totalSteps) {
+                            statusLight.classList.remove('bg-red-500', 'bg-green-500');
+                            statusLight.classList.add('bg-yellow-500');
+                            statusText.textContent = `ASSEMBLING MODULE... [${currentStep}/${totalSteps}]`;
+                        } else {
+                            statusLight.classList.remove('bg-red-500', 'bg-yellow-500');
+                            statusLight.classList.add('bg-green-500', 'shadow-[0_0_15px_#22c55e]');
+                            statusText.innerHTML = "<span class='text-green-400'>SYSTEM ONLINE // ASSEMBLY COMPLETE</span>";
+                        }
+                    }
+
+                    // Mouse Move Listener
+                    container.addEventListener('mousemove', (e) => {
+                        const rect = container.getBoundingClientRect();
+                        // Calculate mouse position as a percentage of the container width (0.0 to 1.0)
+                        const x = e.clientX - rect.left;
+                        const percentage = x / rect.width;
+                        
+                        updateAssembly(percentage);
+                    });
+
+                    // Reset on mouse leave (optional - remove if you want it to stay assembled)
+                    container.addEventListener('mouseleave', () => {
+                       updateAssembly(0);
+                    });
+                });
+            </script>
+
+<section id="skills" class="relative py-24 bg-void overflow-hidden">
+        
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAtMmgxMDB2MTAwSDBWMi0yek0xIDloOThWMWgtOTh2OHptOTggMWgtOTh2MThoOThWMTB6bTAgMTloLTk4djE4aDk4VjI5em0wIDE5LTk4djE4aDk4VjQ4em0wIDE5LTk4djE4aDk4VjY3em0wIDE5LTk4djE4aDk4Vjg2eiIgZmlsbD0iIzFFMjYzMyIgZmlsbC1vcGFjaXR5PSIwLjEiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==')] opacity-20 pointer-events-none animate-[pulse_10s_ease-in-out_infinite]"></div>
+        
+        <div id="skill-spotlight" class="pointer-events-none absolute inset-0 z-0 transition-opacity duration-500 opacity-0" 
+             style="background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(34, 211, 238, 0.10), transparent 40%);">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <div class="mb-12 text-center">
+                <h2 class="text-3xl font-bold text-white mb-2">TECHNICAL ARSENAL</h2>
+                <p class="font-mono text-xs text-concrete tracking-widest">/// SOFTWARE CORE + ENGINEERING PROTOCOLS</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="softwareGrid">
+
+                <div class="skill-module group relative h-48 bg-panel/50 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-neon/50 transition-all duration-300">
+                    <div class="absolute top-0 right-0 p-2 font-mono text-[9px] text-concrete opacity-50">SW_01</div>
+                    <div class="p-6 h-full flex flex-col justify-between relative z-10 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-20">
+                        <div class="w-auto inline-flex px-4 h-12 bg-void border border-neon/30 rounded-lg items-center justify-center gap-3 text-white font-bold shadow-[inset_0_0_10px_rgba(34,211,238,0.2)]">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Rhinoceros_3D_Logo.svg" class="w-6 h-6 object-contain" alt="Rhino">
+                            <span class="text-xs tracking-wider text-concrete">RHINO</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">3D Modeling</h3>
+                            <div class="flex items-center gap-2 font-mono text-xs text-neon">
+                                <span>95%</span>
+                                <div class="h-1.5 w-full bg-void rounded-full overflow-hidden border border-neon/30"><div class="h-full w-[95%] bg-neon shadow-[0_0_5px_#22D3EE]"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-x-0 bottom-0 h-full bg-void/95 backdrop-blur-xl border-t border-neon/50 p-6 translate-y-[110%] transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] group-hover:translate-y-0 z-20 flex flex-col justify-center">
+                        <h4 class="font-mono text-xs text-neon mb-2">// DIAGNOSTIC_DATA:</h4>
+                        <p class="text-sm text-concrete leading-relaxed">Complex NURBS surface modeling, master geometry creation, and managing large-scale facade assemblies.</p>
+                    </div>
+                </div>
+
+                <div class="skill-module group relative h-48 bg-panel/50 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-green-400/50 transition-all duration-300">
+                    <div class="absolute top-0 right-0 p-2 font-mono text-[9px] text-concrete opacity-50">SW_02</div>
+                    <div class="p-6 h-full flex flex-col justify-between relative z-10 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-20">
+                        <div class="w-auto inline-flex px-4 h-12 bg-void border border-green-400/30 rounded-lg items-center justify-center gap-3 text-white font-bold shadow-[inset_0_0_10px_rgba(74,222,128,0.2)]">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Grasshopper_3d_icon.png/600px-Grasshopper_3d_icon.png" class="w-6 h-6 object-contain" alt="GH">
+                            <span class="text-xs tracking-wider text-concrete">GRASSHOPPER</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Computational</h3>
+                            <div class="flex items-center gap-2 font-mono text-xs text-green-400">
+                                <span>90%</span>
+                                <div class="h-1.5 w-full bg-void rounded-full overflow-hidden border border-green-400/30"><div class="h-full w-[90%] bg-green-400 shadow-[0_0_5px_#4ade80]"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-x-0 bottom-0 h-full bg-void/95 backdrop-blur-xl border-t border-green-400/50 p-6 translate-y-[110%] transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] group-hover:translate-y-0 z-20 flex flex-col justify-center">
+                        <h4 class="font-mono text-xs text-green-400 mb-2">// DIAGNOSTIC_DATA:</h4>
+                        <p class="text-sm text-concrete leading-relaxed">Parametric logic for panelization, optimization loops, and automating repetitive detailing tasks.</p>
+                    </div>
+                </div>
+
+                <div class="skill-module group relative h-48 bg-panel/50 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-blue-500/50 transition-all duration-300">
+                    <div class="absolute top-0 right-0 p-2 font-mono text-[9px] text-concrete opacity-50">SW_03</div>
+                    <div class="p-6 h-full flex flex-col justify-between relative z-10 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-20">
+                        <div class="w-auto inline-flex px-4 h-12 bg-void border border-blue-500/30 rounded-lg items-center justify-center gap-3 text-white font-bold shadow-[inset_0_0_10px_rgba(59,130,246,0.2)]">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Revit_Architecture_Logo.svg" class="w-6 h-6 object-contain" alt="Revit">
+                            <span class="text-xs tracking-wider text-concrete">REVIT</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">BIM Architecture</h3>
+                            <div class="flex items-center gap-2 font-mono text-xs text-blue-500">
+                                <span>85%</span>
+                                <div class="h-1.5 w-full bg-void rounded-full overflow-hidden border border-blue-500/30"><div class="h-full w-[85%] bg-blue-500 shadow-[0_0_5px_#3b82f6]"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-x-0 bottom-0 h-full bg-void/95 backdrop-blur-xl border-t border-blue-500/50 p-6 translate-y-[110%] transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] group-hover:translate-y-0 z-20 flex flex-col justify-center">
+                        <h4 class="font-mono text-xs text-blue-500 mb-2">// DIAGNOSTIC_DATA:</h4>
+                        <p class="text-sm text-concrete leading-relaxed">BIM coordination, creating custom curtain wall families, and LOD 350+ modeling for construction documents.</p>
+                    </div>
+                </div>
+
+                <div class="skill-module group relative h-48 bg-panel/50 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-red-500/50 transition-all duration-300">
+                    <div class="absolute top-0 right-0 p-2 font-mono text-[9px] text-concrete opacity-50">SW_04</div>
+                    <div class="p-6 h-full flex flex-col justify-between relative z-10 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-20">
+                        <div class="w-auto inline-flex px-4 h-12 bg-void border border-red-500/30 rounded-lg items-center justify-center gap-3 text-white font-bold shadow-[inset_0_0_10px_rgba(239,68,68,0.2)]">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Autodesk_AutoCAD_2024_icon.svg" class="w-6 h-6 object-contain" alt="CAD">
+                            <span class="text-xs tracking-wider text-concrete">AUTOCAD</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Drafting</h3>
+                            <div class="flex items-center gap-2 font-mono text-xs text-red-500">
+                                <span>98%</span>
+                                <div class="h-1.5 w-full bg-void rounded-full overflow-hidden border border-red-500/30"><div class="h-full w-[98%] bg-red-500 shadow-[0_0_5px_#ef4444]"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-x-0 bottom-0 h-full bg-void/95 backdrop-blur-xl border-t border-red-500/50 p-6 translate-y-[110%] transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] group-hover:translate-y-0 z-20 flex flex-col justify-center">
+                        <h4 class="font-mono text-xs text-red-500 mb-2">// DIAGNOSTIC_DATA:</h4>
+                        <p class="text-sm text-concrete leading-relaxed">Precision detailing (LOD 400), creating fabrication shop drawings, and managing complex profile sections.</p>
+                    </div>
+                </div>
+
+                <div class="skill-module group relative h-48 bg-panel/50 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-blue-400/50 transition-all duration-300">
+                    <div class="absolute top-0 right-0 p-2 font-mono text-[9px] text-concrete opacity-50">SW_05</div>
+                    <div class="p-6 h-full flex flex-col justify-between relative z-10 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-20">
+                        <div class="w-auto inline-flex px-4 h-12 bg-void border border-blue-400/30 rounded-lg items-center justify-center gap-3 text-white font-bold shadow-[inset_0_0_10px_rgba(96,165,250,0.2)]">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/SketchUp_Logo.svg" class="w-6 h-6 object-contain" alt="Skp">
+                            <span class="text-xs tracking-wider text-concrete">SKETCHUP</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Rapid Modeling</h3>
+                            <div class="flex items-center gap-2 font-mono text-xs text-blue-400">
+                                <span>90%</span>
+                                <div class="h-1.5 w-full bg-void rounded-full overflow-hidden border border-blue-400/30"><div class="h-full w-[90%] bg-blue-400 shadow-[0_0_5px_#60a5fa]"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-x-0 bottom-0 h-full bg-void/95 backdrop-blur-xl border-t border-blue-400/50 p-6 translate-y-[110%] transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] group-hover:translate-y-0 z-20 flex flex-col justify-center">
+                        <h4 class="font-mono text-xs text-blue-400 mb-2">// DIAGNOSTIC_DATA:</h4>
+                        <p class="text-sm text-concrete leading-relaxed">Quick conceptual massing, detail visualization, and generating 3D mockups for client presentations.</p>
+                    </div>
+                </div>
+
+                <div class="skill-module group relative h-48 bg-panel/50 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-pink-500/50 transition-all duration-300">
+                    <div class="absolute top-0 right-0 p-2 font-mono text-[9px] text-concrete opacity-50">SW_06</div>
+                    <div class="p-6 h-full flex flex-col justify-between relative z-10 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-20">
+                        <div class="w-auto inline-flex px-4 h-12 bg-void border border-pink-500/30 rounded-lg items-center justify-center gap-3 text-white font-bold shadow-[inset_0_0_10px_rgba(236,72,153,0.2)]">
+                            <div class="w-6 h-6 rounded-full bg-pink-500 flex items-center justify-center text-[10px] text-black font-bold">R</div>
+                            <span class="text-xs tracking-wider text-concrete">RAYON</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Web CAD</h3>
+                            <div class="flex items-center gap-2 font-mono text-xs text-pink-500">
+                                <span>80%</span>
+                                <div class="h-1.5 w-full bg-void rounded-full overflow-hidden border border-pink-500/30"><div class="h-full w-[80%] bg-pink-500 shadow-[0_0_5px_#ec4899]"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-x-0 bottom-0 h-full bg-void/95 backdrop-blur-xl border-t border-pink-500/50 p-6 translate-y-[110%] transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] group-hover:translate-y-0 z-20 flex flex-col justify-center">
+                        <h4 class="font-mono text-xs text-pink-500 mb-2">// DIAGNOSTIC_DATA:</h4>
+                        <p class="text-sm text-concrete leading-relaxed">Collaborative cloud-based 2D design, space planning, and quick redlining for team reviews.</p>
+                    </div>
+                </div>
+
+                <div class="skill-module group relative h-48 bg-panel/50 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-purple-500/50 transition-all duration-300">
+                    <div class="absolute top-0 right-0 p-2 font-mono text-[9px] text-concrete opacity-50">SW_07</div>
+                    <div class="p-6 h-full flex flex-col justify-between relative z-10 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-20">
+                        <div class="w-auto inline-flex px-4 h-12 bg-void border border-purple-500/30 rounded-lg items-center justify-center gap-3 text-white font-bold shadow-[inset_0_0_10px_rgba(168,85,247,0.2)]">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" class="w-6 h-6 object-contain" alt="Figma">
+                            <span class="text-xs tracking-wider text-concrete">FIGMA</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">UI/UX</h3>
+                            <div class="flex items-center gap-2 font-mono text-xs text-purple-500">
+                                <span>85%</span>
+                                <div class="h-1.5 w-full bg-void rounded-full overflow-hidden border border-purple-500/30"><div class="h-full w-[85%] bg-purple-500 shadow-[0_0_5px_#a855f7]"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-x-0 bottom-0 h-full bg-void/95 backdrop-blur-xl border-t border-purple-500/50 p-6 translate-y-[110%] transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] group-hover:translate-y-0 z-20 flex flex-col justify-center">
+                        <h4 class="font-mono text-xs text-purple-500 mb-2">// DIAGNOSTIC_DATA:</h4>
+                        <p class="text-sm text-concrete leading-relaxed">Wireframing user interfaces, prototyping interactions, and applying user-centric design principles to portfolios.</p>
+                    </div>
+                </div>
+
+                <div class="skill-module group relative h-48 bg-panel/50 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-orange-500/50 transition-all duration-300">
+                    <div class="absolute top-0 right-0 p-2 font-mono text-[9px] text-concrete opacity-50">SW_08</div>
+                    <div class="p-6 h-full flex flex-col justify-between relative z-10 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-20">
+                        <div class="w-auto inline-flex px-4 h-12 bg-void border border-orange-500/30 rounded-lg items-center justify-center gap-3 text-white font-bold shadow-[inset_0_0_10px_rgba(249,115,22,0.2)]">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_Office_logo_%282019%E2%80%93present%29.svg" class="w-6 h-6 object-contain" alt="Office">
+                            <span class="text-xs tracking-wider text-concrete">OFFICE</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Documentation</h3>
+                            <div class="flex items-center gap-2 font-mono text-xs text-orange-500">
+                                <span>100%</span>
+                                <div class="h-1.5 w-full bg-void rounded-full overflow-hidden border border-orange-500/30"><div class="h-full w-[100%] bg-orange-500 shadow-[0_0_5px_#f97316]"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-x-0 bottom-0 h-full bg-void/95 backdrop-blur-xl border-t border-orange-500/50 p-6 translate-y-[110%] transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] group-hover:translate-y-0 z-20 flex flex-col justify-center">
+                        <h4 class="font-mono text-xs text-orange-500 mb-2">// DIAGNOSTIC_DATA:</h4>
+                        <p class="text-sm text-concrete leading-relaxed">BOQ Estimation (Excel), writing technical specifications (Word), and project scheduling (MS Project).</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+
+                <div class="group relative bg-surface/30 border border-white/5 rounded-lg p-4 hover:bg-yellow-500/10 hover:border-yellow-500/50 transition-all duration-300 flex flex-col justify-center items-center text-center cursor-default">
+                    <svg class="w-6 h-6 text-yellow-500 mb-2 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    <span class="text-xs font-bold text-white tracking-wide">FABRICATION</span>
+                    <span class="text-[9px] font-mono text-concrete mt-1 group-hover:text-yellow-500">CNC / LASER</span>
+                </div>
+
+                <div class="group relative bg-surface/30 border border-white/5 rounded-lg p-4 hover:bg-red-500/10 hover:border-red-500/50 transition-all duration-300 flex flex-col justify-center items-center text-center cursor-default">
+                    <svg class="w-6 h-6 text-red-500 mb-2 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <span class="text-xs font-bold text-white tracking-wide">SHOP DRAWINGS</span>
+                    <span class="text-[9px] font-mono text-concrete mt-1 group-hover:text-red-500">LOD 400</span>
+                </div>
+
+                <div class="group relative bg-surface/30 border border-white/5 rounded-lg p-4 hover:bg-green-500/10 hover:border-green-500/50 transition-all duration-300 flex flex-col justify-center items-center text-center cursor-default">
+                    <svg class="w-6 h-6 text-green-500 mb-2 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <span class="text-xs font-bold text-white tracking-wide">PARAMETRIC</span>
+                    <span class="text-[9px] font-mono text-concrete mt-1 group-hover:text-green-500">OPTIMIZATION</span>
+                </div>
+
+                <div class="group relative bg-surface/30 border border-white/5 rounded-lg p-4 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-center items-center text-center cursor-default">
+                    <svg class="w-6 h-6 text-blue-500 mb-2 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+                    <span class="text-xs font-bold text-white tracking-wide">GFC SETS</span>
+                    <span class="text-[9px] font-mono text-concrete mt-1 group-hover:text-blue-500">DOCUMENTATION</span>
+                </div>
+
+                <div class="group relative bg-surface/30 border border-white/5 rounded-lg p-4 hover:bg-purple-500/10 hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-center items-center text-center cursor-default">
+                    <svg class="w-6 h-6 text-purple-500 mb-2 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    <span class="text-xs font-bold text-white tracking-wide">MATERIALS</span>
+                    <span class="text-[9px] font-mono text-concrete mt-1 group-hover:text-purple-500">GLASS / ALU</span>
+                </div>
+
+                <div class="group relative bg-surface/30 border border-white/5 rounded-lg p-4 hover:bg-orange-500/10 hover:border-orange-500/50 transition-all duration-300 flex flex-col justify-center items-center text-center cursor-default">
+                    <svg class="w-6 h-6 text-orange-500 mb-2 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    <span class="text-xs font-bold text-white tracking-wide">BOQ / EST</span>
+                    <span class="text-[9px] font-mono text-concrete mt-1 group-hover:text-orange-500">QUANTITIES</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+            const skillSection = document.getElementById('skills');
+            const spotlight = document.getElementById('skill-spotlight');
+
+            skillSection.addEventListener('mousemove', (e) => {
+                const rect = skillSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                spotlight.style.opacity = '1';
+                spotlight.style.setProperty('--mouse-x', `${x}px`);
+                spotlight.style.setProperty('--mouse-y', `${y}px`);
+            });
+
+            skillSection.addEventListener('mouseleave', () => {
+                spotlight.style.opacity = '0';
+            });
+        </script>
+    </section>
+
+    <section id="experience" class="relative py-32 bg-panel/20 border-t border-surface">
+        
+        <div class="max-w-5xl mx-auto px-6">
+            
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+                    <span class="w-2 h-8 bg-neon"></span>
+                    CAREER_ARCHITECTURE
+                </h2>
+                <p class="font-mono text-xs text-concrete uppercase tracking-widest">/// Timeline of Professional Builds</p>
+            </div>
+
+            <div class="relative border-l-2 border-surface/50 ml-3 md:ml-6 space-y-16">
+
+                <div class="relative pl-8 md:pl-12 group">
+                    
+                    <div class="absolute -left-[9px] top-8 w-4 h-4 rounded-full bg-void border-2 border-neon shadow-[0_0_10px_#22D3EE] z-10"></div>
+                    <div class="absolute left-0 top-10 w-8 md:w-12 h-0.5 bg-neon/50"></div>
+
+                    <div class="relative glass-panel rounded-xl overflow-hidden hover:border-neon/50 transition-all duration-300 transform hover:-translate-y-1">
+                        
+                        <div class="p-6 md:p-8 border-b border-white/5 bg-white/5 relative">
+                            <div class="absolute top-6 right-6 flex items-center gap-2 bg-green-500/10 border border-green-500/20 px-3 py-1 rounded-full">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                                <span class="font-mono text-[10px] text-green-400 uppercase">Current Role</span>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-white mb-1">Facade Designer</h3>
+                            <div class="flex flex-wrap items-center gap-4 text-sm font-mono text-concrete mt-2">
+                                <span class="text-neon">@ Freelance / Self-Initiated</span>
+                                <span class="w-1 h-1 rounded-full bg-surface"></span>
+                                <span>Bangalore, IN</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 md:p-8">
+                            <div class="mb-6">
+                                <span class="inline-block font-mono text-[10px] text-concrete border border-surface px-2 py-0.5 rounded mb-3">CORE_FOCUS: FACADE ENGINEERING & R&D</span>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 text-concrete text-sm leading-relaxed">
+                                        <span class="mt-1.5 w-1.5 h-1.5 rounded-sm bg-neon shrink-0"></span>
+                                        <span>Designing high-performance kinetic skins using <strong class="text-white">Grasshopper & Rhino</strong> to optimize solar radiation control by 35%.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-concrete text-sm leading-relaxed">
+                                        <span class="mt-1.5 w-1.5 h-1.5 rounded-sm bg-neon shrink-0"></span>
+                                        <span>Developing a "Software-Standard" portfolio website, integrating UI/UX principles into architectural presentation.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-concrete text-sm leading-relaxed">
+                                        <span class="mt-1.5 w-1.5 h-1.5 rounded-sm bg-neon shrink-0"></span>
+                                        <span>Producing fabrication-ready drawings (LOD 400) and environmental analysis reports using Ladybug Tools.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pt-6 border-t border-white/5">
+                                <p class="font-mono text-[10px] text-concrete uppercase mb-3">/// TECH_STACK_DEPLOYED</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-void border border-surface rounded text-xs font-mono text-neon hover:border-neon transition-colors">Parametric Design</span>
+                                    <span class="px-3 py-1 bg-void border border-surface rounded text-xs font-mono text-neon hover:border-neon transition-colors">Web Development</span>
+                                    <span class="px-3 py-1 bg-void border border-surface rounded text-xs font-mono text-neon hover:border-neon transition-colors">Performance Analysis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 md:pl-12 group opacity-80 hover:opacity-100 transition-opacity">
+                    
+                    <div class="absolute -left-[9px] top-8 w-4 h-4 rounded-full bg-void border-2 border-concrete z-10"></div>
+                    <div class="absolute left-0 top-10 w-8 md:w-12 h-0.5 bg-concrete/30"></div>
+
+                    <div class="relative glass-panel rounded-xl overflow-hidden hover:border-concrete/50 transition-all duration-300">
+                        
+                        <div class="p-6 md:p-8 border-b border-white/5 bg-white/5 relative">
+                            <div class="absolute top-6 right-6 flex items-center gap-2 bg-surface border border-white/5 px-3 py-1 rounded-full">
+                                <span class="font-mono text-[10px] text-concrete uppercase">Completed v1.0</span>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-white mb-1">UI/UX Designer Intern</h3>
+                            <div class="flex flex-wrap items-center gap-4 text-sm font-mono text-concrete mt-2">
+                                <span class="text-white">@ TechSolutions Inc.</span> <span class="w-1 h-1 rounded-full bg-surface"></span>
+                                <span>Remote / Hybrid</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 md:p-8">
+                            <div class="mb-6">
+                                <span class="inline-block font-mono text-[10px] text-concrete border border-surface px-2 py-0.5 rounded mb-3">CORE_FOCUS: USER RESEARCH & WIREFRAMING</span>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 text-concrete text-sm leading-relaxed">
+                                        <span class="mt-1.5 w-1.5 h-1.5 rounded-sm bg-concrete shrink-0"></span>
+                                        <span>Conducted user research and A/B testing to improve dashboard navigation, reducing user drop-off by 15%.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-concrete text-sm leading-relaxed">
+                                        <span class="mt-1.5 w-1.5 h-1.5 rounded-sm bg-concrete shrink-0"></span>
+                                        <span>Designed high-fidelity wireframes in Figma, focusing on accessibility and responsive layouts.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pt-6 border-t border-white/5">
+                                <p class="font-mono text-[10px] text-concrete uppercase mb-3">/// SKILLS_ACQUIRED</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-void border border-surface rounded text-xs font-mono text-concrete">Figma</span>
+                                    <span class="px-3 py-1 bg-void border border-surface rounded text-xs font-mono text-concrete">User Flows</span>
+                                    <span class="px-3 py-1 bg-void border border-surface rounded text-xs font-mono text-concrete">Prototyping</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 relative border-t border-surface/30">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-white mb-2">Professional Timeline</h2>
+                <p class="font-mono text-xs text-concrete">./WORK_HISTORY_LOG</p>
+            </div>
+
+            <div class="relative border-l border-surface ml-4 space-y-12">
+                
+                <div class="relative pl-8">
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-neon rounded-full shadow-glow"></div>
+                    
+                    <div class="glass-panel p-6 rounded-lg hover:border-neon/30 transition-colors group">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                            <h3 class="text-xl font-bold text-white group-hover:text-neon transition-colors">Facade Designer (Portfolio Phase)</h3>
+                            <span class="font-mono text-xs text-neon bg-neon/10 px-2 py-1 rounded border border-neon/20">JAN 2026 - PRESENT</span>
+                        </div>
+                        <p class="text-concrete text-sm mb-4 leading-relaxed">
+                            Currently developing a high-performance portfolio showcasing proficiency in Rhino, Grasshopper, and Web Technologies. Focusing on the intersection of architectural engineering and user experience.
+                        </p>
+                        <div class="flex gap-3">
+                            <span class="text-[10px] font-mono border border-surface px-2 py-1 rounded text-concrete">FREELANCE</span>
+                            <span class="text-[10px] font-mono border border-surface px-2 py-1 rounded text-concrete">R&D</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pl-8">
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-surface border border-concrete rounded-full"></div>
+                    
+                    <div class="glass-panel p-6 rounded-lg hover:border-neon/30 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                            <h3 class="text-xl font-bold text-white">UI/UX Designer Intern</h3>
+                            <span class="font-mono text-xs text-concrete">2025 (6 Months)</span>
+                        </div>
+                        <p class="text-concrete text-sm mb-4 leading-relaxed">
+                            Worked on user-centric design principles, wireframing, and prototyping. Applying these digital usability standards to architectural facade systems.
+                        </p>
+                        <div class="flex gap-3">
+                            <span class="text-[10px] font-mono border border-surface px-2 py-1 rounded text-concrete">FIGMA</span>
+                            <span class="text-[10px] font-mono border border-surface px-2 py-1 rounded text-concrete">USER RESEARCH</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 bg-panel/30 border-t border-surface/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-2">Selected Works</h2>
+                    <p class="font-mono text-xs text-concrete">./CASE_STUDIES</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="project-detail.html" class="block group relative w-full overflow-hidden rounded-xl glass-panel hover:border-neon/50 transition-all duration-500 cursor-pointer">
+                    
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute inset-0 bg-void/40 z-10 group-hover:bg-void/10 transition-all duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                            class="h-full w-full object-cover transition-transform duration-700 scale-105 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 z-20 bg-void/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded shadow-glass-edge">
+                            <p class="font-mono text-[10px] text-neon">U-VAL: 1.2</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white group-hover:text-neon transition-colors mb-2">Kinetic Louver System</h3>
+                        <p class="text-sm text-concrete mb-4">Parametric shading design optimizing solar gain reduction.</p>
+                        <div class="border-t border-white/5 pt-4 flex gap-4">
+                                <span class="font-mono text-[10px] text-white">RHINO + GH</span>
+                        </div>
+                    </div>
+                    
+
+                </a>
+
+                <a href="project-detail.html" class="block group relative w-full overflow-hidden rounded-xl glass-panel hover:border-neon/50 transition-all duration-500 cursor-pointer">
+                    
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute inset-0 bg-void/40 z-10 group-hover:bg-void/10 transition-all duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                            class="h-full w-full object-cover transition-transform duration-700 scale-105 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 z-20 bg-void/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded shadow-glass-edge">
+                            <p class="font-mono text-[10px] text-neon">U-VAL: 1.2</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white group-hover:text-neon transition-colors mb-2">Kinetic Louver System</h3>
+                        <p class="text-sm text-concrete mb-4">Parametric shading design optimizing solar gain reduction.</p>
+                        <div class="border-t border-white/5 pt-4 flex gap-4">
+                                <span class="font-mono text-[10px] text-white">RHINO + GH</span>
+                        </div>
+                    </div>
+                    
+
+                </a>
+              <!-- <a href="project-detail.html">
+                
+                <div class="group relative w-full overflow-hidden rounded-xl glass-panel hover:border-neon/50 transition-all duration-500 cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute inset-0 bg-void/40 z-10 group-hover:bg-void/10 transition-all duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                             class="h-full w-full object-cover transition-transform duration-700 scale-105 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 z-20 bg-void/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded shadow-glass-edge">
+                            <p class="font-mono text-[10px] text-neon">U-VAL: 1.2</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white group-hover:text-neon transition-colors mb-2">Kinetic Louver System</h3>
+                        <p class="text-sm text-concrete mb-4">Parametric shading design optimizing solar gain reduction.</p>
+                        <div class="border-t border-white/5 pt-4 flex gap-4">
+                             <span class="font-mono text-[10px] text-white">RHINO + GH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative w-full overflow-hidden rounded-xl glass-panel hover:border-neon/50 transition-all duration-500 cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute inset-0 bg-void/40 z-10 group-hover:bg-void/10 transition-all duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?q=80&w=2070&auto=format&fit=crop" 
+                             class="h-full w-full object-cover transition-transform duration-700 scale-105 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 z-20 bg-void/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded shadow-glass-edge">
+                            <p class="font-mono text-[10px] text-neon">VLT: 60%</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white group-hover:text-neon transition-colors mb-2">Adaptive Double Skin</h3>
+                        <p class="text-sm text-concrete mb-4">High-rise tower facade with thermal buffer zones.</p>
+                        <div class="border-t border-white/5 pt-4 flex gap-4">
+                             <span class="font-mono text-[10px] text-white">REVIT + DYNAMO</span>
+                        </div>
+                    </div>
+                </div>
+                </a> -->
+
+            </div>
+        </div>
+    </section>
+
+        <section id="projects" class="relative py-32 bg-[#050505]">
+        
+        <div class="max-w-7xl mx-auto px-6 mb-12 flex justify-between items-end">
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-1">SELECTED_WORKS</h2>
+                <p class="font-mono text-xs text-concrete">/// STRUCTURAL GLAZING SYSTEM</p>
+            </div>
+            <div class="hidden md:block border border-white/20 px-3 py-1">
+                <p class="font-mono text-[10px] text-concrete tracking-widest">SPEC: DGU-LOW-E // TEMPERED</p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-[#111] border-[4px] border-[#111] shadow-2xl">
+
+                <a href="project-detail.html" class="facade-panel group relative h-[450px] overflow-hidden bg-gray-900 cursor-pointer" onmousemove="updateReflection(event, this)">
+                    
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 scale-100 group-hover:scale-105" alt="Project 1">
+
+                    <div class="glass-reflection absolute inset-0 z-10 transition-opacity duration-700 ease-in-out group-hover:opacity-10 pointer-events-none"
+                         style="background: linear-gradient(135deg, rgba(135, 206, 235, 0.4) 0%, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.6) 50%, rgba(20, 20, 20, 0.5) 51%, rgba(0, 0, 0, 0.6) 100%);
+                                background-size: 200% 200%;
+                                mix-blend-mode: hard-light;">
+                    </div>
+                    
+                    <div class="absolute bottom-4 right-4 z-20 opacity-60 group-hover:opacity-0 transition-opacity duration-300">
+                        <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center rotate-12 bg-white/5 backdrop-blur-sm">
+                            <span class="font-mono text-[8px] text-white/80 text-center leading-tight">SG<br>TEMP</span>
+                        </div>
+                    </div>
+
+                    <div class="absolute top-4 left-4 w-3 h-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 shadow-md z-30"></div>
+                    <div class="absolute top-4 right-4 w-3 h-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 shadow-md z-30"></div>
+                    <div class="absolute bottom-4 left-4 w-3 h-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 shadow-md z-30"></div>
+                    <div class="absolute bottom-4 right-4 w-3 h-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 shadow-md z-30"></div>
+
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <div class="inline-block px-2 py-1 bg-neon text-void font-bold font-mono text-xs mb-2">PROJECT_01</div>
+                            <h3 class="text-3xl font-bold text-white mb-2 drop-shadow-md">Kinetic Skin</h3>
+                            <p class="text-concrete text-sm font-light border-l-2 border-neon pl-3">Parametric solar control system reducing HVAC loads by 35%.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="facade-panel group relative h-[450px] overflow-hidden bg-gray-900 cursor-pointer" onmousemove="updateReflection(event, this)">
+                    <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 scale-100 group-hover:scale-105" alt="Project 2">
+
+                    <div class="glass-reflection absolute inset-0 z-10 transition-opacity duration-700 ease-in-out group-hover:opacity-10 pointer-events-none"
+                         style="background: linear-gradient(135deg, rgba(135, 206, 235, 0.4) 0%, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.6) 50%, rgba(20, 20, 20, 0.5) 51%, rgba(0, 0, 0, 0.6) 100%);
+                                background-size: 200% 200%;
+                                mix-blend-mode: hard-light;">
+                    </div>
+
+                    <div class="absolute bottom-4 right-4 z-20 opacity-60 group-hover:opacity-0 transition-opacity duration-300">
+                        <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center rotate-12 bg-white/5 backdrop-blur-sm">
+                            <span class="font-mono text-[8px] text-white/80 text-center leading-tight">SG<br>LAM</span>
+                        </div>
+                    </div>
+
+                    <div class="absolute top-4 left-4 w-3 h-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 shadow-md z-30"></div>
+                    <div class="absolute top-4 right-4 w-3 h-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 shadow-md z-30"></div>
+                    <div class="absolute bottom-4 left-4 w-3 h-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 shadow-md z-30"></div>
+                    <div class="absolute bottom-4 right-4 w-3 h-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 shadow-md z-30"></div>
+
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <div class="inline-block px-2 py-1 bg-neon text-void font-bold font-mono text-xs mb-2">PROJECT_02</div>
+                            <h3 class="text-3xl font-bold text-white mb-2 drop-shadow-md">Double Skin</h3>
+                            <p class="text-concrete text-sm font-light border-l-2 border-neon pl-3">Thermal buffer zone for high-rise application.</p>
+                        </div>
+                    </div>
+                </a>
+
+                 <a href="#" class="facade-panel group relative h-[450px] overflow-hidden bg-gray-900 cursor-pointer" onmousemove="updateReflection(event, this)">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 scale-100 group-hover:scale-105" alt="Project 3">
+                    <div class="glass-reflection absolute inset-0 z-10 transition-opacity duration-700 ease-in-out group-hover:opacity-10 pointer-events-none" style="background: linear-gradient(135deg, rgba(135, 206, 235, 0.4) 0%, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.6) 50%, rgba(20, 20, 20, 0.5) 51%, rgba(0, 0, 0, 0.6) 100%); background-size: 200% 200%; mix-blend-mode: hard-light;"></div>
+                    <div class="absolute top-4 left-4 w-3 h-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 shadow-md z-30"></div>
+                    <div class="absolute top-4 right-4 w-3 h-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 shadow-md z-30"></div>
+                    <div class="absolute bottom-4 left-4 w-3 h-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 shadow-md z-30"></div>
+                    <div class="absolute bottom-4 right-4 w-3 h-3 rounded-full bg-gradient-to-br from-gray-300 to-gray-600 shadow-md z-30"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <div class="inline-block px-2 py-1 bg-neon text-void font-bold font-mono text-xs mb-2">PROJECT_03</div>
+                            <h3 class="text-3xl font-bold text-white mb-2 drop-shadow-md">Parametric Roof</h3>
+                            <p class="text-concrete text-sm font-light border-l-2 border-neon pl-3">Computational geometry for large-span structure.</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <script>
+            function updateReflection(e, card) {
+                // Select the reflection layer
+                const glass = card.querySelector('.glass-reflection');
+                const rect = card.getBoundingClientRect();
+                
+                // Calculate mouse position
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Calculate percentage (0 to 100)
+                const xPercent = (x / rect.width) * 100;
+                const yPercent = (y / rect.height) * 100;
+
+                // Move the background gradient to simulate view angle change
+                // We move it inverse to mouse to simulate distant reflection
+                glass.style.backgroundPosition = `${50 + (xPercent / 5)}% ${50 + (yPercent / 5)}%`;
+            }
+        </script>
+    </section>
+
+        <section id="projects" class="py-24 bg-panel/30 border-t border-surface/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-2">Selected Works</h2>
+                    <p class="font-mono text-xs text-concrete">./CASE_STUDIES</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="project-detail.html" class="block group relative w-full overflow-hidden rounded-xl glass-panel hover:border-neon/50 transition-all duration-500 cursor-pointer">
+                    
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute inset-0 bg-void/40 z-10 group-hover:bg-void/10 transition-all duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                            class="h-full w-full object-cover transition-transform duration-700 scale-105 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 z-20 bg-void/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded shadow-glass-edge">
+                            <p class="font-mono text-[10px] text-neon">U-VAL: 1.2</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white group-hover:text-neon transition-colors mb-2">Kinetic Louver System</h3>
+                        <p class="text-sm text-concrete mb-4">Parametric shading design optimizing solar gain reduction.</p>
+                        <div class="border-t border-white/5 pt-4 flex gap-4">
+                                <span class="font-mono text-[10px] text-white">RHINO + GH</span>
+                        </div>
+                    </div>
+                    
+
+                </a>
+
+                <a href="project-detail.html" class="block group relative w-full overflow-hidden rounded-xl glass-panel hover:border-neon/50 transition-all duration-500 cursor-pointer">
+                    
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute inset-0 bg-void/40 z-10 group-hover:bg-void/10 transition-all duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                            class="h-full w-full object-cover transition-transform duration-700 scale-105 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 z-20 bg-void/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded shadow-glass-edge">
+                            <p class="font-mono text-[10px] text-neon">U-VAL: 1.2</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white group-hover:text-neon transition-colors mb-2">Kinetic Louver System</h3>
+                        <p class="text-sm text-concrete mb-4">Parametric shading design optimizing solar gain reduction.</p>
+                        <div class="border-t border-white/5 pt-4 flex gap-4">
+                                <span class="font-mono text-[10px] text-white">RHINO + GH</span>
+                        </div>
+                    </div>
+                    
+
+                </a>
+              <!-- <a href="project-detail.html">
+                
+                <div class="group relative w-full overflow-hidden rounded-xl glass-panel hover:border-neon/50 transition-all duration-500 cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute inset-0 bg-void/40 z-10 group-hover:bg-void/10 transition-all duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                             class="h-full w-full object-cover transition-transform duration-700 scale-105 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 z-20 bg-void/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded shadow-glass-edge">
+                            <p class="font-mono text-[10px] text-neon">U-VAL: 1.2</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white group-hover:text-neon transition-colors mb-2">Kinetic Louver System</h3>
+                        <p class="text-sm text-concrete mb-4">Parametric shading design optimizing solar gain reduction.</p>
+                        <div class="border-t border-white/5 pt-4 flex gap-4">
+                             <span class="font-mono text-[10px] text-white">RHINO + GH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative w-full overflow-hidden rounded-xl glass-panel hover:border-neon/50 transition-all duration-500 cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute inset-0 bg-void/40 z-10 group-hover:bg-void/10 transition-all duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?q=80&w=2070&auto=format&fit=crop" 
+                             class="h-full w-full object-cover transition-transform duration-700 scale-105 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 z-20 bg-void/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded shadow-glass-edge">
+                            <p class="font-mono text-[10px] text-neon">VLT: 60%</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white group-hover:text-neon transition-colors mb-2">Adaptive Double Skin</h3>
+                        <p class="text-sm text-concrete mb-4">High-rise tower facade with thermal buffer zones.</p>
+                        <div class="border-t border-white/5 pt-4 flex gap-4">
+                             <span class="font-mono text-[10px] text-white">REVIT + DYNAMO</span>
+                        </div>
+                    </div>
+                </div>
+                </a> -->
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-surface bg-void py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center text-concrete text-xs font-mono">
+            <div>&copy; 2026 YOUR_NAME. All Rights Reserved.</div>
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                SYSTEM ONLINE
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="relative order-1 lg:order-2 h-[500px] w-full flex items-center justify-center" id="assemblyContainer">
+                
+                <div class="relative w-full max-w-md h-full border-2 border-surface bg-panel/80 backdrop-blur-md overflow-hidden rounded-xl shadow-2xl group cursor-crosshair">
+                    
+                    <div class="absolute inset-0 bg-grid-pattern bg-[length:20px_20px] opacity-20 pointer-events-none"></div>
+                    
+                    <div class="absolute top-0 left-0 w-full flex justify-between items-center p-4 border-b border-white/10 z-30 bg-void/90">
+                        <div class="flex items-center gap-2">
+                            <div id="statusLight" class="w-2 h-2 bg-red-500 rounded-full shadow-glow transition-colors duration-500"></div>
+                            <span id="statusText" class="font-mono text-[10px] text-concrete uppercase tracking-widest">ALIGNMENT REQUIRED &darr;</span>
+                        </div>
+                        <div class="font-mono text-[10px] text-neon animate-pulse">CLICK_TO_EXPLODE</div>
+                    </div>
+                    
+                    <div class="relative w-full h-full flex items-center justify-center pt-12 perspective-1000" id="layerGroup">
+
+                        <div class="assembly-layer absolute w-48 h-[400px] bg-concrete/10 border-2 border-concrete/30 flex items-end p-2 transition-all duration-700 ease-out z-10 
+                                    transform translate-z-[-100px] translate-y-12 rotate-x-10 opacity-60 grayscale" 
+                                    data-step="1" id="layer1">
+                            
+                            <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0JyBoZWlnaHQ9JzQnIHZpZXdCb3g9JzAgMCA0IDQnPjxwYXRoIGZpbGw9JyM5QzkyQUMnIGZpbGwtb3BhY2l0eT0nMC40JyBkPSdNMSAzaDF2MUgxVjN6bTItMmgxdjFIM1YxeicvPjwvc3ZnPg==')]"></div>
+                            
+                            <div class="absolute top-1/2 -left-24 flex items-center gap-2 opacity-50 transition-opacity duration-300 label-group">
+                                <span class="font-mono text-[9px] text-concrete bg-void/80 px-1 border border-concrete/30">RC_STRUCTURE</span>
+                                <div class="w-8 h-px bg-concrete/50"></div>
+                                <div class="w-1 h-1 bg-concrete rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <div class="assembly-layer absolute w-16 h-[400px] bg-panel border-x-2 border-neon/30 backdrop-blur-sm transition-all duration-700 ease-out z-20 shadow-xl 
+                                    transform translate-y-[-50px] rotate-y-45 opacity-60" 
+                                    data-step="2" id="layer2">
+                            
+                            <div class="absolute left-1/2 top-0 bottom-0 w-px bg-neon/20"></div>
+                            <div class="absolute top-20 left-0 right-0 h-px bg-neon/20"></div>
+                            <div class="absolute top-40 left-0 right-0 h-px bg-neon/20"></div>
+
+                            <div class="absolute top-10 -right-32 flex items-center gap-2 opacity-50 transition-opacity duration-300 label-group">
+                                <div class="w-1 h-1 bg-neon rounded-full"></div>
+                                <div class="w-8 h-px bg-neon/50"></div>
+                                <span class="font-mono text-[9px] text-neon bg-void/80 px-1 border border-neon/30">ALU_MULLION_6063</span>
+                            </div>
+                        </div>
+
+                        <div class="assembly-layer absolute w-56 h-[350px] bg-neon/5 border border-neon/40 backdrop-blur-[1px] transition-all duration-1000 ease-out z-30 overflow-hidden group-hover:border-neon
+                                    transform translate-z-[50px] scale-90 translate-y-8 opacity-60" 
+                                    data-step="3" id="layer3">
+                            
+                            <div class="absolute inset-0 bg-glass-reflection opacity-60 z-20 pointer-events-none"></div>
+
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" 
+                                 alt="Profile" 
+                                 class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-overlay grayscale hover:grayscale-0 transition-all duration-700 z-10">
+
+                            <div class="absolute bottom-8 -left-24 flex items-center gap-2 opacity-50 transition-opacity duration-300 label-group">
+                                <span class="font-mono text-[9px] text-neon bg-void/80 px-1 border border-neon/30">DGU_GLAZING</span>
+                                <div class="w-8 h-px bg-neon/50"></div>
+                                <div class="w-1 h-1 bg-neon rounded-full"></div>
+                            </div>
+
+                            <div class="absolute bottom-2 left-0 w-full text-center z-30">
+                                <p class="font-mono text-[8px] text-neon/60 tracking-widest">SYS_ID: YOUR NAME</p>
+                            </div>
+                        </div>
+
+                        <div id="scannerLine" class="absolute top-0 left-0 right-0 h-px bg-neon shadow-[0_0_10px_#22D3EE] z-50 opacity-0 transition-opacity duration-300"></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .perspective-1000 { perspective: 1000px; }
+                
+                /* 1. THE ALIGNED STATE (When mouse moves down) */
+                .assembly-layer.aligned {
+                    transform: translate3d(0, 0, 0) rotate(0) scale(1) !important;
+                    opacity: 1 !important;
+                    filter: grayscale(0) !important;
+                }
+                
+                /* Labels glow when aligned */
+                .assembly-layer.aligned .label-group {
+                    opacity: 1 !important;
+                }
+
+                /* 2. THE EXPLODED STATE (On Click) */
+                .exploded .assembly-layer[data-step="1"] { transform: translateX(-90px) rotateY(-15deg) !important; opacity: 1 !important; }
+                .exploded .assembly-layer[data-step="2"] { transform: translateX(0px) !important; opacity: 1 !important; }
+                .exploded .assembly-layer[data-step="3"] { transform: translateX(90px) rotateY(15deg) !important; opacity: 1 !important; }
+
+                /* Idle Float Animation (When user does nothing) */
+                @keyframes float-1 { 0%,100%{transform: translateZ(-100px) translateY(12px) rotateX(10deg);} 50%{transform: translateZ(-100px) translateY(18px) rotateX(10deg);} }
+                @keyframes float-2 { 0%,100%{transform: translateY(-50px) rotateY(45deg);} 50%{transform: translateY(-45px) rotateY(40deg);} }
+                @keyframes float-3 { 0%,100%{transform: translateZ(50px) scale(0.9) translateY(8px);} 50%{transform: translateZ(50px) scale(0.9) translateY(4px);} }
+                
+                #layer1:not(.aligned):not(.exploded) { animation: float-1 4s ease-in-out infinite; }
+                #layer2:not(.aligned):not(.exploded) { animation: float-2 5s ease-in-out infinite; }
+                #layer3:not(.aligned):not(.exploded) { animation: float-3 6s ease-in-out infinite; }
+            </style>
+
+            <script>
+                (function() {
+                    const container = document.getElementById('assemblyContainer');
+                    const layerGroup = document.getElementById('layerGroup');
+                    const layers = container.querySelectorAll('.assembly-layer');
+                    const statusLight = document.getElementById('statusLight');
+                    const statusText = document.getElementById('statusText');
+                    const scanner = document.getElementById('scannerLine');
+                    
+                    let isExploded = false;
+                    const totalSteps = layers.length;
+
+                    // Mouse Interaction
+                    container.addEventListener('mousemove', (e) => {
+                        if (isExploded) return;
+                        
+                        const rect = container.getBoundingClientRect();
+                        const y = e.clientY - rect.top;
+                        const percentage = Math.min(Math.max(y / rect.height, 0), 1);
+                        
+                        // Move scanner line
+                        scanner.style.top = `${percentage * 100}%`;
+                        scanner.style.opacity = '1';
+
+                        // Calculate which step is aligned based on scroll
+                        // 0-33% = Step 1, 33-66% = Step 2, etc.
+                        let currentStep = Math.floor(percentage * (totalSteps + 0.5));
+                        currentStep = Math.min(currentStep, totalSteps);
+
+                        // Apply 'aligned' class to layers
+                        layers.forEach(layer => {
+                            const layerStep = parseInt(layer.getAttribute('data-step'));
+                            if (layerStep <= currentStep) layer.classList.add('aligned');
+                            else layer.classList.remove('aligned');
+                        });
+
+                        // Update Text
+                        if (currentStep === totalSteps) {
+                            statusLight.className = "w-2 h-2 bg-green-500 rounded-full shadow-[0_0_10px_#22c55e]";
+                            statusText.innerHTML = "SYSTEM ALIGNED <span class='text-concrete'>// CLICK TO EXPLODE</span>";
+                        } else {
+                            statusLight.className = "w-2 h-2 bg-yellow-500 rounded-full";
+                            statusText.innerHTML = "ALIGNING COMPONENTS...";
+                        }
+                    });
+
+                    // Click to Explode
+                    container.addEventListener('click', () => {
+                        isExploded = !isExploded;
+                        if (isExploded) {
+                            layerGroup.classList.add('exploded');
+                            scanner.style.opacity = '0'; // Hide scanner
+                            statusText.innerHTML = "VIEW: <span class='text-neon'>EXPLODED AXON</span>";
+                        } else {
+                            layerGroup.classList.remove('exploded');
+                            statusText.innerHTML = "VIEW: <span class='text-concrete'>ASSEMBLED</span>";
+                        }
+                    });
+
+                    // Mouse Leave (Return to Floating State)
+                    container.addEventListener('mouseleave', () => {
+                        if(!isExploded) {
+                            layers.forEach(l => l.classList.remove('aligned'));
+                            scanner.style.opacity = '0';
+                            statusLight.className = "w-2 h-2 bg-red-500 rounded-full";
+                            statusText.innerHTML = "ALIGNMENT REQUIRED &darr;";
+                        }
+                    });
+                })();
+            </script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

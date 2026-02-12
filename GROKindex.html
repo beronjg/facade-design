@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUTYENS — Facade Designer | Sustainable High-Rise</title>
+  <meta name="description" content="Adaptive facades with smart materials for modern high-rises in urban climates."/>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --surface: #151515;
+      --border: #222222;
+      --text-primary: #f0f0f0;
+      --text-secondary: #aaaaaa;
+      --text-muted: #777777;
+      --primary: #00d4b8;
+      --primary-light: #4fffe0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero with Interactive Animation */
+    #hero {
+      height: 100vh;
+      min-height: 800px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 30%, var(--bg-primary) 85%);
+      z-index: 1;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      scale: 1.1;
+      opacity: 0.7;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      font-weight: 700;
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+    }
+
+    .lead {
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: #0a0a0a;
+      font-weight: 600;
+      padding: 1.1rem 2.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.4s;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0,212,184,0.25);
+    }
+
+    /* New Interactive Facade Animation Section (Integrated into Hero for Landing Page) */
+    .interactive-facade {
+      position: relative;
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .interactive-facade h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .facade-svg {
+      width: 100%;
+      height: 400px;
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Building Outline */
+    .building {
+      position: absolute;
+      top: 20%;
+      left: 20%;
+      width: 60%;
+      height: 60%;
+      background: linear-gradient(to bottom, #333, #111);
+      border: 2px solid var(--border);
+      transform: skewX(-5deg);
+      transition: all 0.5s;
+    }
+
+    /* Panels */
+    .panel {
+      position: absolute;
+      background: rgba(0, 212, 184, 0.2); /* Teal tint for smart glass */
+      border: 1px solid var(--primary);
+      transition: all 0.8s ease-out;
+      opacity: 0;
+      transform: translateY(100px);
+    }
+
+    .panel1 { top: 10%; left: 10%; width: 20%; height: 20%; }
+    .panel2 { top: 10%; left: 40%; width: 20%; height: 20%; transition-delay: 0.2s; }
+    .panel3 { top: 40%; left: 10%; width: 20%; height: 20%; transition-delay: 0.4s; }
+    .panel4 { top: 40%; left: 40%; width: 20%; height: 20%; transition-delay: 0.6s; }
+
+    /* Interaction: Hover to "fit" panels and animate response */
+    .facade-svg:hover .panel {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .facade-svg:hover .panel {
+      background: rgba(0, 212, 184, 0.6); /* Simulate tinting on interaction */
+      box-shadow: 0 0 20px rgba(0,212,184,0.5);
+    }
+
+    .facade-svg:hover {
+      background: var(--bg-primary);
+    }
+
+    .interaction-info {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+
+    .interaction-info strong {
+      color: var(--primary);
+    }
+
+    /* Projects */
+    #projects {
+      padding: 10rem 0 6rem;
+    }
+
+    h2.section-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 5rem;
+      color: var(--primary);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      aspect-ratio: 4 / 3;
+      cursor: pointer;
+      transition: transform 0.5s, box-shadow 0.5s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.5s;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-meta {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .tag {
+      padding: 0.35rem 0.9rem;
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 500;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 4rem 0 2rem;
+      text-align: center;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      nav .nav-links { display: none; }
+      h1 { font-size: 3.8rem; }
+      .lead { font-size: 1.25rem; }
+      #projects { padding-top: 6rem; }
+      .facade-svg { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">LUTYENS</div>
+        <ul class="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero with Integrated Interactive Animation -->
+  <section id="hero">
+    <img class="hero-bg" src="https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80" alt="High-rise facade">
+    <div class="hero-content">
+      <h1>Sustainable Facades<br>with Smart Materials</h1>
+      <p class="lead">Designing adaptive, energy-efficient building envelopes for high-density urban environments</p>
+      <a href="#projects" class="btn-primary">View Projects</a>
+
+      <!-- Interactive Facade Animation -->
+      <div class="interactive-facade">
+        <h3>Explore Facade Panel System</h3>
+        <div class="facade-svg">
+          <div class="building"></div>
+          <div class="panel panel1"></div>
+          <div class="panel panel2"></div>
+          <div class="panel panel3"></div>
+          <div class="panel panel4"></div>
+        </div>
+        <p class="interaction-info">Hover over the building to see <strong>smart panels fitting and responding</strong> (e.g., tinting for solar control). This illustrates how the facade system integrates dynamic materials like electrochromic glass for sustainability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Selected Works</h2>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card" onclick="showProject('project1')">
+          <img src="https://images.unsplash.com/photo-1544197807-bb503430e22e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80" alt="Smart Tower">
+          <div class="project-overlay">
+            <h3 class="project-title">Adaptive Smart Tower</h3>
+            <div class="project-meta">2025 • New Delhi</div>
+            <div class="tags">
+              <span class="tag">Electrochromic</span>
+              <span class="tag">PCM</span>
+              <span class="tag">45% Cooling</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" onclick="showProject('project2')">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80" alt="Vertical Forest">
+          <div class="project-overlay">
+            <h3 class="project-title">Bio-Adaptive High-Rise</h3>
+            <div class="project-meta">2024 • Conceptual</div>
+            <div class="tags">
+              <span class="tag">BIPV</span>
+              <span class="tag">Kinetic</span>
+              <span class="tag">LEED Platinum</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add 2–4 more project cards here following the same pattern -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Simple modal overlay for project detail simulation -->
+  <div id="projectModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:200; color:white; overflow-y:auto;">
+    <div style="max-width:1100px; margin:5rem auto; padding:2rem;">
+      <button onclick="closeProject()" style="float:right; background:transparent; border:none; color:var(--primary); font-size:2rem; cursor:pointer;">×</button>
+      <h2 id="modalTitle" style="font-size:3rem; margin:2rem 0 1.5rem; color:var(--primary);">Project Title</h2>
+      <p id="modalDesc" style="font-size:1.2rem; color:var(--text-secondary); max-width:800px; margin-bottom:3rem;">
+        Click a project card to see more details here (this is a simple JS simulation — replace with real content or link to separate pages).
+      </p>
+      <!-- You can add images, metrics, diagrams here -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <p>© 2026 LUTYENS — Facade Design Studio</p>
+      <p style="margin-top:0.8rem; font-size:0.95rem;">Designing responsive, sustainable high-rise envelopes • New Delhi</p>
+    </div>
+  </footer>
+
+  <script>
+    function showProject(id) {
+      const modal = document.getElementById('projectModal');
+      const title = document.getElementById('modalTitle');
+      const desc = document.getElementById('modalDesc');
+
+      if (id === 'project1') {
+        title.textContent = "Adaptive Smart Tower – New Delhi";
+        desc.innerHTML = "High-rise facade integrating electrochromic glazing and phase-change materials. Achieves up to 45% reduction in cooling demand in hot-dry climate while maintaining excellent daylight autonomy.";
+      } else if (id === 'project2') {
+        title.textContent = "Bio-Adaptive High-Rise";
+        desc.innerHTML = "Conceptual design combining vertical greening, kinetic shading and BIPV panels for net-positive energy performance and improved urban microclimate.";
+      }
+
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProject() {
+      document.getElementById('projectModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside content
+    document.getElementById('projectModal').addEventListener('click', function(e) {
+      if (e.target === this) closeProject();
+    });
+  </script>
+
+</body>
+</html>

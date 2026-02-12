@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Jewar | Facade Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        void: '#0B0E14', panel: '#151B25', surface: '#1E2633', 
+                        neon: '#22D3EE', concrete: '#94A3B8', aluminium: '#475569',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1E2633 1px, transparent 1px), linear-gradient(to bottom, #1E2633 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background-color: rgba(21, 27, 37, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        /* Custom Scrollbar for code blocks */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0E14; }
+        ::-webkit-scrollbar-thumb { background: #1E2633; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #22D3EE; }
+    </style>
+</head>
+<body class="bg-void text-white font-sans antialiased selection:bg-neon selection:text-void">
+
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="text-neon group-hover:-translate-x-1 transition-transform">&larr;</span>
+                <span class="font-mono text-xs font-bold tracking-widest text-concrete group-hover:text-white">BACK_TO_HOME</span>
+            </a>
+            <span class="font-mono text-xs text-concrete">PROJECT_ID: <span class="text-neon">AEROVITRA_02</span></span>
+        </div>
+    </nav>
+
+<header class="relative pt-32 pb-6 px-6 border-b border-surface/50">
+        
+        <div class="absolute inset-0 bg-grid-pattern opacity-[0.05] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            
+            <div class="flex gap-2 text-[10px] font-mono text-concrete mb-4 uppercase tracking-widest">
+                <span>Projects</span> / <span>Commercial</span> / <span class="text-neon">Façade Glazing System</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold mb-8">Noida International Airport (Jewar) terminal <span class="text-neon">F2.0</span></h1>
+            
+            <p class="text-lg md:text-xl text-concrete font-light leading-relaxed mb-12">
+                A net-zero-aspiring greenfield project blending Swiss efficiency and Indian hospitality — features expansive high-performance glass curtain walls, aluminum framing, and sustainable glazing for optimal daylight and heat control in NCR conditions. As part of Mero Asia Pacific’s facade team, I prepared AutoCAD fabrication and shop drawings for glass panels, aluminum extrusions, and curtain wall elements; produced precise MTOs for glazing, profiles, hardware, and seals to reduce waste and costs; and coordinated installation sequencing for the large-scale exterior envelope.
+            </p>
+
+            <!-- <div class="mt-12">
+                
+                <div class="glass-panel border-l-4 border-l-neon bg-surface/20 p-8 rounded-r-xl relative overflow-hidden">
+                    
+                    <div class="absolute right-4 top-4 font-mono text-[60px] font-bold text-white/5 pointer-events-none select-none">ROLE</div>
+
+                    <h3 class="font-mono text-sm text-neon mb-6 flex items-center gap-3 uppercase tracking-widest">
+                        /// MY_ROLE_ON_PROJECT
+                    </h3>
+
+                    <ul class="space-y-6 relative z-10">
+                        <li class="flex items-start gap-4 group">
+                            <div class="mt-1.5 w-6 h-6 rounded flex items-center justify-center bg-neon/10 border border-neon/30 text-neon group-hover:bg-neon group-hover:text-void transition-colors">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            
+                            <span class="text-lg text-white font-light leading-relaxed">
+                                Prepared shop drawings and detailed fabrication drawings using <strong class="text-neon font-normal">AutoCAD</strong> for glass panels, ensuring precise dimensions for assembly.
+                            </span>
+                        </li>
+                        
+                        <li class="flex items-start gap-4 group">
+                            <div class="mt-1.5 w-6 h-6 rounded flex items-center justify-center bg-neon/10 border border-neon/30 text-neon group-hover:bg-neon group-hover:text-void transition-colors">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            
+                            <span class="text-lg text-white font-light leading-relaxed">
+                                Created 3D models in <strong class="text-neon font-normal">Revit</strong>, including custom families for mullions to visualize connections and visibility in renders.
+                            </span>
+                        </li>
+
+                        <li class="flex items-start gap-4 group">
+                            <div class="mt-1.5 w-6 h-6 rounded flex items-center justify-center bg-neon/10 border border-neon/30 text-neon group-hover:bg-neon group-hover:text-void transition-colors">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            
+                            <span class="text-lg text-white font-light leading-relaxed">
+                                Contributed to panel fabrication processes, coordinating with site teams for accurate installation sequencing.
+                            </span>
+                        </li>
+
+                        <li class="flex items-start gap-4 group">
+                            <div class="mt-1.5 w-6 h-6 rounded flex items-center justify-center bg-neon/10 border border-neon/30 text-neon group-hover:bg-neon group-hover:text-void transition-colors">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            
+                            <span class="text-lg text-white font-light leading-relaxed">
+                                Focused on modular glass panel designs (e.g., double-glazed units with low-E coatings) for the terminal's curved facade sections.
+                            </span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div> -->
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+        <aside class="lg:col-span-3 lg:sticky lg:top-24 h-fit space-y-8">
+            
+            <div class="glass-panel p-6 rounded-lg">
+                <h3 class="font-mono text-xs text-concrete uppercase mb-4 border-b border-surface pb-2">Specs Sheet</h3>
+                <div class="space-y-4">
+                    <div>
+                        <span class="block font-mono text-[10px] text-concrete">LOCATION</span>
+                        <span class="text-sm">Noida, India</span>
+                    </div>
+                    <div>
+                        <span class="block font-mono text-[10px] text-concrete">YEAR</span>
+                        <span class="text-sm">2024</span>
+                    </div>
+                    <div>
+                        <span class="block font-mono text-[10px] text-concrete">ROLE</span>
+                        <span class="text-sm">Facade Designer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 rounded-lg">
+                <h3 class="font-mono text-xs text-concrete uppercase mb-4 border-b border-surface pb-2">Design Stack</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-2 py-1 bg-surface rounded text-[10px] font-mono text-neon border border-neon/20">AutoCAD</span>
+                    <span class="px-2 py-1 bg-surface rounded text-[10px] font-mono text-neon border border-neon/20">Revit</span>
+                    <!-- <span class="px-2 py-1 bg-surface rounded text-[10px] font-mono text-neon border border-neon/20">Ladybug</span>
+                    <span class="px-2 py-1 bg-surface rounded text-[10px] font-mono text-neon border border-neon/20">Keyshot</span> -->
+                </div>
+            </div>
+
+            <button class="w-full py-3 border border-concrete/30 text-concrete hover:text-white hover:border-neon hover:bg-surface/50 rounded flex items-center justify-center gap-2 font-mono text-xs transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                DOWNLOAD_DETAILS.DWG
+            </button>
+        </aside>
+
+        <div class="lg:col-span-9 space-y-20">
+
+    <section>
+        <div class="flex items-center gap-4 mb-6">
+                    <div class="w-8 h-8 rounded bg-surface flex items-center justify-center text-neon font-bold font-mono">01</div>
+                    <h2 class="text-2xl font-bold text-white">Structure vs. Finish</h2>
+                </div>
+                <p class="text-concrete mb-6">Use the slider to see how the aluminium sub-structure integrates with the final glazing units.</p>
+
+                <div class="relative w-full h-[500px] overflow-hidden rounded-xl border border-surface group select-none cursor-ew-resize" id="sliderContainer">
+                    
+                    <img src="images/mero images/noida str.jpg" 
+                         class="absolute inset-0 w-full h-full object-cover pointer-events-none" 
+                         alt="Final Facade">
+                    
+                    <div id="topImageContainer" class="absolute inset-0 w-full h-full overflow-hidden" style="width: 50%;">
+                        <img src="images/mero images/noida finish.jpg" 
+                             class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 brightness-75 pointer-events-none" 
+                             style="width: 100vw; max-width: none;"
+                             alt="Structure">
+                             </div>
+
+                    <div id="sliderHandle" class="absolute top-0 bottom-0 w-1 bg-neon cursor-ew-resize shadow-[0_0_20px_#22D3EE] z-20" style="left: 50%;">
+                        <div class="absolute top-1/2 -left-4 w-9 h-9 bg-void border border-neon rounded-full flex items-center justify-center shadow-lg">
+                            <svg class="w-4 h-4 text-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute top-4 left-4 bg-void/80 px-2 py-1 rounded text-[10px] font-mono text-white border border-white/20 z-20">RAW_STRUCTURE</div>
+                    <div class="absolute top-4 right-4 bg-void/80 px-2 py-1 rounded text-[10px] font-mono text-neon border border-neon/50 z-20">FINAL_RENDER</div>
+
+        </div>
+    </section>
+            
+
+    <!-- <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-8 h-8 rounded bg-surface flex items-center justify-center text-neon font-bold font-mono">02</div>
+                    <h2 class="text-2xl font-bold text-white">The Challenge</h2>
+                </div>
+                <div class="glass-panel p-8 rounded-xl border-l-4 border-neon">
+                    <p class="text-concrete leading-relaxed">
+                        Complex curved façade geometry was resolved using parametric Revit modeling to accurately align mullions and glass panels, reducing fabrication errors by ~15%, while wind and seismic demands were addressed through flexible connection detailing to maintain structural performance and watertightness under coastal conditions.
+                        <br><br>
+                        <strong class="text-white">Problem:</strong> Ensuring accurate alignment of non-standard curved glass panels while designing a façade system capable of withstanding high coastal wind loads
+                    </p>
+                </div>
+    </section>
+
+    <section class="mb-20">
+        <div class="flex items-center gap-4 mb-6">
+            <div class="w-8 h-8 rounded bg-surface flex items-center justify-center text-neon font-bold font-mono">03</div>
+            <h2 class="text-2xl font-bold text-white">Parametric Logic</h2>
+        </div>
+        
+        <div class="bg-[#1e1e1e] rounded-lg overflow-hidden border border-surface shadow-2xl font-mono text-sm">
+            
+            <div class="bg-[#252526] px-4 py-2 flex items-center justify-between border-b border-black">
+                <span class="text-xs text-concrete">family: Adaptive_Mullion_System.rfa</span>
+                <div class="flex gap-1.5">
+                    <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                </div>
+            </div>
+
+            <div class="p-6 overflow-x-auto text-gray-300 leading-relaxed">
+                
+                <p class="text-concrete italic mb-2">// 1. MULLION VISIBILITY TOGGLE</p>
+                <p><span class="text-purple-400">if</span> (edge_condition == <span class="text-yellow-300">"Hidden"</span>):</p>
+                <p class="pl-4">mullion_visibility = <span class="text-blue-400">False</span> <span class="text-green-600"># Toggle Off</span></p>
+                <p><span class="text-purple-400">else</span>:</p>
+                <p class="pl-4">mullion_visibility = <span class="text-blue-400">True</span> <span class="text-green-600"># Exposed Edge</span></p>
+                <br>
+
+                <p class="text-concrete italic mb-2">// 2. DYNAMIC DEPTH ADJUSTMENT</p>
+                <p><span class="text-purple-400">def</span> <span class="text-yellow-300">adjust_dimensions</span>(curvature_radius):</p>
+                <p class="pl-4"><span class="text-purple-400">if</span> curvature_radius > <span class="text-neon">5000</span>: <span class="text-green-600">// 5m Radius</span></p>
+                <p class="pl-8">mullion_depth += <span class="text-neon">20</span> <span class="text-green-600">// Increase +20mm for stability</span></p>
+                <p class="pl-4"><span class="text-purple-400">return</span> mullion_depth</p>
+                <br>
+
+                <p class="text-concrete italic mb-2">// 3. SYSTEM SCALABILITY</p>
+                <p class="text-neon">> Applied across 10,000+ sqm facade area.</p>
+                <p class="text-neon">> Iteration time reduced by 40%.</p>
+
+            </div>
+        </div>
+        
+        <p class="text-xs text-concrete mt-4 font-mono">Figure 2.1: Logic embedded within Revit families to automate visibility and structural depth.</p>
+    </section>
+
+    <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-8 h-8 rounded bg-surface flex items-center justify-center text-neon font-bold font-mono">04</div>
+                    <h2 class="text-2xl font-bold text-white">Visual Schematics</h2>
+                </div>
+                
+                <p class="text-concrete mb-6 text-sm">Comprehensive visual data including site progress, component detailing, and environmental renders.</p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[180px]">
+                    
+                    <div class="col-span-2 row-span-2 group relative overflow-hidden rounded-xl border border-surface bg-panel cursor-pointer" onclick="openLightbox(0)">
+                        <img src="images/navi finish.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Hero">
+                        <div class="absolute inset-0 bg-void/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-neon font-mono text-xs border border-neon/50 px-3 py-1 rounded bg-void/80">VIEW_GALLERY</span>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1 row-span-1 group relative overflow-hidden rounded-xl border border-surface bg-panel cursor-pointer" onclick="openLightbox(1)">
+                        <img src="images/navi str.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Struct">
+                        <div class="absolute inset-0 bg-void/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1 row-span-1 group relative overflow-hidden rounded-xl border border-surface bg-panel cursor-pointer" onclick="openLightbox(2)">
+                        <img src="images/mero images/mero works_pages-to-jpg-0001.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Detail">
+                    </div>
+
+                    <div class="col-span-2 row-span-1 group relative overflow-hidden rounded-xl border border-surface bg-panel cursor-pointer" onclick="openLightbox(3)">
+                        <img src="images/mero images/mero works_pages-to-jpg-0005.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Wide">
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-xl border border-surface bg-panel cursor-pointer" onclick="openLightbox(4)">
+                        <img src="images/mero images/Screenshot 2026-02-07 142255.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all" alt="Shot">
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-xl border border-surface bg-panel cursor-pointer" onclick="openLightbox(5)">
+                        <img src="images/mero images/Screenshot 2026-02-07 142341.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all" alt="Shot">
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-xl border border-surface bg-panel cursor-pointer" onclick="openLightbox(6)">
+                        <img src="images/mero images/Screenshot 2026-02-07 142505.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all" alt="Shot">
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-xl border border-surface bg-panel cursor-pointer" onclick="openLightbox(7)">
+                        <img src="images/mero images/Screenshot 2026-02-07 142512.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all" alt="Shot">
+                    </div>
+                    
+                    <div class="group relative overflow-hidden rounded-xl border border-surface bg-surface/50 cursor-pointer flex items-center justify-center hover:border-neon transition-colors" onclick="openLightbox(8)">
+                        <div class="text-center">
+                            <span class="block text-xl font-bold text-white">+3</span>
+                            <span class="text-[10px] text-concrete font-mono">VIEW_ALL</span>
+                        </div>
+                    </div>
+
+                </div>
+    </section> -->
+
+
+    <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-8 h-8 rounded bg-surface flex items-center justify-center text-neon font-bold font-mono">05</div>
+                    <h2 class="text-2xl font-bold text-white">Performance Metrics</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-panel p-6 rounded text-center border-b-2 border-neon">
+                        <span class="block text-3xl font-bold text-white mb-1">35%</span>
+                        <span class="font-mono text-xs text-concrete uppercase">Heat Reduction</span>
+                    </div>
+                    <div class="glass-panel p-6 rounded text-center border-b-2 border-yellow-500">
+                        <span class="block text-3xl font-bold text-white mb-1">1.2</span>
+                        <span class="font-mono text-xs text-concrete uppercase">U-Value (W/m²K)</span>
+                    </div>
+                    <div class="glass-panel p-6 rounded text-center border-b-2 border-blue-500">
+                        <span class="block text-3xl font-bold text-white mb-1">450</span>
+                        <span class="font-mono text-xs text-concrete uppercase">Panels Optimized</span>
+                    </div>
+                </div>
+    </section>
+
+    
+
+    <section class="pt-12 border-t border-surface">
+                <div class="bg-gradient-to-r from-surface to-void p-8 rounded-xl flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Have a similar project?</h3>
+                        <p class="text-concrete text-sm">I am available for freelance facade consultation.</p>
+                    </div>
+                    <a href="#" class="px-6 py-3 bg-neon text-void font-bold font-mono text-xs rounded hover:bg-white transition-colors">
+                        CONTACT_ME
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-void py-8 border-t border-surface mt-12">
+        <div class="max-w-7xl mx-auto px-6 text-center text-concrete text-xs font-mono">
+            © 2026 Designed by Facade_OS
+        </div>
+    </footer>
+
+    <script>
+        const sliderContainer = document.getElementById('sliderContainer');
+        const topImageContainer = document.getElementById('topImageContainer');
+        const sliderHandle = document.getElementById('sliderHandle');
+        let isDragging = false;
+
+        // Function to move slider
+        function moveSlider(e) {
+            const rect = sliderContainer.getBoundingClientRect();
+            // Get X position of mouse/touch relative to container
+            let x = (e.clientX || e.touches[0].clientX) - rect.left;
+            
+            // Clamp values so it doesn't go outside
+            x = Math.max(0, Math.min(x, rect.width));
+            
+            // Calculate percentage
+            const percentage = (x / rect.width) * 100;
+
+            // Update styles
+            topImageContainer.style.width = percentage + "%";
+            sliderHandle.style.left = percentage + "%";
+        }
+
+        // Event Listeners
+        sliderContainer.addEventListener('mousedown', () => isDragging = true);
+        window.addEventListener('mouseup', () => isDragging = false);
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            moveSlider(e);
+        });
+
+        // Touch support for mobile
+        sliderContainer.addEventListener('touchstart', () => isDragging = true);
+        window.addEventListener('touchend', () => isDragging = false);
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            moveSlider(e);
+        });
+
+        // Add a click listener to jump to position
+        sliderContainer.addEventListener('click', (e) => {
+            moveSlider(e);
+        });
+    </script>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-void/95 backdrop-blur-xl hidden flex-col justify-center items-center opacity-0 transition-opacity duration-300">
+        
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-concrete hover:text-neon transition-colors p-2">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <div class="relative w-full max-w-6xl h-[80vh] flex items-center justify-center px-12">
+            <img id="lightbox-img" src="" class="max-w-full max-h-full object-contain shadow-2xl rounded-sm">
+        </div>
+
+        <button onclick="prevImage()" class="absolute left-4 md:left-8 p-4 text-white hover:text-neon bg-surface/20 rounded-full hover:bg-surface/50 transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button onclick="nextImage()" class="absolute right-4 md:right-8 p-4 text-white hover:text-neon bg-surface/20 rounded-full hover:bg-surface/50 transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
+        <div class="absolute bottom-8 font-mono text-neon text-sm bg-surface/30 px-3 py-1 rounded-full border border-white/10">
+            IMG <span id="lightbox-counter">01</span> / <span id="lightbox-total">12</span>
+        </div>
+    </div>
+
+    <script>
+        // 1. DEFINE YOUR IMAGE LIST HERE
+        // Add ALL your images here, including the hidden ones
+        const galleryImages = [
+            "images/navi finish.jpg",                                   // Index 0
+            "images/navi str.png",                                      // Index 1
+            "images/mero images/mero works_pages-to-jpg-0001.jpg",      // Index 2
+            "images/mero images/mero works_pages-to-jpg-0005.jpg",      // Index 3
+            "images/mero images/Screenshot 2026-02-07 142255.png",      // Index 4
+            "images/mero images/Screenshot 2026-02-07 142341.png",      // Index 5
+            "images/mero images/Screenshot 2026-02-07 142505.png",      // Index 6
+            "images/mero images/Screenshot 2026-02-07 142512.png",      // Index 7
+            
+            // THESE ARE THE HIDDEN IMAGES (The +3)
+            "images/mero images/Screenshot 2026-02-07 142529.png",      // Index 8
+            "images/mero images/Screenshot 2026-02-07 142433.png",      // Index 9
+            "images/mero images/Screenshot 2026-02-07 142446.png"       // Index 10
+        ];
+
+        let currentIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const counter = document.getElementById('lightbox-counter');
+        const total = document.getElementById('lightbox-total');
+
+        // Initialize Total Count
+        total.textContent = galleryImages.length;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightboxImage();
+            
+            // Show Lightbox
+            lightbox.classList.remove('hidden');
+            // Small delay to allow display:flex to apply before opacity transition
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightbox.classList.add('flex'); // Ensure flex is applied
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+            }, 300);
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            updateLightboxImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateLightboxImage();
+        }
+
+        function updateLightboxImage() {
+            lightboxImg.src = galleryImages[currentIndex];
+            counter.textContent = String(currentIndex + 1).padStart(2, '0');
+        }
+
+        // Close on Escape Key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeLightbox();
+            }
+            if (event.key === "ArrowRight") {
+                nextImage();
+            }
+            if (event.key === "ArrowLeft") {
+                prevImage();
+            }
+        });
+    </script>
+</body>
+</html>

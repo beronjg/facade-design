@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Kinetic Louver | Facade Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        void: '#0B0E14', panel: '#151B25', surface: '#1E2633', 
+                        neon: '#22D3EE', concrete: '#94A3B8', aluminium: '#475569',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1E2633 1px, transparent 1px), linear-gradient(to bottom, #1E2633 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background-color: rgba(21, 27, 37, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        /* Custom Scrollbar for code blocks */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0E14; }
+        ::-webkit-scrollbar-thumb { background: #1E2633; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #22D3EE; }
+    </style>
+</head>
+<body class="bg-void text-white font-sans antialiased selection:bg-neon selection:text-void">
+
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="text-neon group-hover:-translate-x-1 transition-transform">&larr;</span>
+                <span class="font-mono text-xs font-bold tracking-widest text-concrete group-hover:text-white">BACK_TO_HOME</span>
+            </a>
+            <span class="font-mono text-xs text-concrete">PROJECT_ID: <span class="text-neon">KINETIC_01</span></span>
+        </div>
+    </nav>
+
+    <header class="relative pt-32 pb-20 px-6 border-b border-surface/50">
+        <div class="absolute inset-0 bg-grid-pattern opacity-[0.05] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex gap-2 text-[10px] font-mono text-concrete mb-4 uppercase tracking-widest">
+                <span>Projects</span> / <span>Commercial</span> / <span class="text-neon">Kinetic System</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Kinetic Louver System <span class="text-neon">v2.0</span></h1>
+            
+            <p class="text-xl text-concrete max-w-2xl font-light leading-relaxed">
+                An adaptive facade skin designed to respond to solar angles. Reducing HVAC loads by 35% while maintaining visual transparency using parametric geometry.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+        <aside class="lg:col-span-3 lg:sticky lg:top-24 h-fit space-y-8">
+            
+            <div class="glass-panel p-6 rounded-lg">
+                <h3 class="font-mono text-xs text-concrete uppercase mb-4 border-b border-surface pb-2">Specs Sheet</h3>
+                <div class="space-y-4">
+                    <div>
+                        <span class="block font-mono text-[10px] text-concrete">LOCATION</span>
+                        <span class="text-sm">Bangalore, India</span>
+                    </div>
+                    <div>
+                        <span class="block font-mono text-[10px] text-concrete">YEAR</span>
+                        <span class="text-sm">2025</span>
+                    </div>
+                    <div>
+                        <span class="block font-mono text-[10px] text-concrete">ROLE</span>
+                        <span class="text-sm">Lead Facade Designer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 rounded-lg">
+                <h3 class="font-mono text-xs text-concrete uppercase mb-4 border-b border-surface pb-2">Design Stack</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-2 py-1 bg-surface rounded text-[10px] font-mono text-neon border border-neon/20">Rhino 7</span>
+                    <span class="px-2 py-1 bg-surface rounded text-[10px] font-mono text-neon border border-neon/20">Grasshopper</span>
+                    <span class="px-2 py-1 bg-surface rounded text-[10px] font-mono text-neon border border-neon/20">Ladybug</span>
+                    <span class="px-2 py-1 bg-surface rounded text-[10px] font-mono text-neon border border-neon/20">Keyshot</span>
+                </div>
+            </div>
+
+            <button class="w-full py-3 border border-concrete/30 text-concrete hover:text-white hover:border-neon hover:bg-surface/50 rounded flex items-center justify-center gap-2 font-mono text-xs transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                DOWNLOAD_DETAILS.DWG
+            </button>
+        </aside>
+
+        <div class="lg:col-span-9 space-y-20">
+
+            <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-8 h-8 rounded bg-surface flex items-center justify-center text-neon font-bold font-mono">01</div>
+                    <h2 class="text-2xl font-bold text-white">The Challenge</h2>
+                </div>
+                <div class="glass-panel p-8 rounded-xl border-l-4 border-neon">
+                    <p class="text-concrete leading-relaxed">
+                        The building faces South-West, receiving intense solar radiation between 2 PM and 5 PM. A standard glass facade would result in a huge energy load (cooling costs). The client wanted a "Transparent" look but with "Solid" performance.
+                        <br><br>
+                        <strong class="text-white">Problem:</strong> How do we block sun without blocking the view?
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-8 h-8 rounded bg-surface flex items-center justify-center text-neon font-bold font-mono">02</div>
+                    <h2 class="text-2xl font-bold text-white">Parametric Logic</h2>
+                </div>
+                
+                <div class="bg-[#1e1e1e] rounded-lg overflow-hidden border border-surface shadow-2xl font-mono text-sm">
+                    <div class="bg-[#252526] px-4 py-2 flex items-center justify-between border-b border-black">
+                        <span class="text-xs text-concrete">script: louver_optimization.gh</span>
+                        <div class="flex gap-1.5"><div class="w-2.5 h-2.5 rounded-full bg-red-500"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div><div class="w-2.5 h-2.5 rounded-full bg-green-500"></div></div>
+                    </div>
+                    <div class="p-6 overflow-x-auto text-gray-300">
+                        <p><span class="text-purple-400">def</span> <span class="text-yellow-300">calculate_rotation</span>(sun_vector, normal):</p>
+                        <p class="pl-4 text-green-600">// Calculate angle based on Azimuth</p>
+                        <p class="pl-4">angle = Vector3.Angle(sun_vector, normal)</p>
+                        <p class="pl-4"><span class="text-purple-400">if</span> angle > <span class="text-neon">45</span>:</p>
+                        <p class="pl-8">rotation = <span class="text-neon">90</span> <span class="text-green-600"># Full Close</span></p>
+                        <p class="pl-4"><span class="text-purple-400">else</span>:</p>
+                        <p class="pl-8">rotation = remap(angle, 0, 45, 0, 90)</p>
+                        <p class="pl-4"><span class="text-purple-400">return</span> rotation</p>
+                    </div>
+                </div>
+                <p class="text-xs text-concrete mt-4 font-mono">Figure 2.1: Python logic used inside Grasshopper to determine louver twist.</p>
+            </section>
+
+            <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-8 h-8 rounded bg-surface flex items-center justify-center text-neon font-bold font-mono">03</div>
+                    <h2 class="text-2xl font-bold text-white">Structure vs. Finish</h2>
+                </div>
+                <p class="text-concrete mb-6">Use the slider to see how the aluminium sub-structure integrates with the final glazing units.</p>
+
+                <div class="relative w-full h-[500px] overflow-hidden rounded-xl border border-surface group select-none cursor-ew-resize" id="sliderContainer">
+                    
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                         class="absolute inset-0 w-full h-full object-cover pointer-events-none" 
+                         alt="Final Facade">
+                    
+                    <div id="topImageContainer" class="absolute inset-0 w-full h-full overflow-hidden" style="width: 50%;">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                             class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 brightness-75 pointer-events-none" 
+                             style="width: 100vw; max-width: none;"
+                             alt="Structure">
+                             </div>
+
+                    <div id="sliderHandle" class="absolute top-0 bottom-0 w-1 bg-neon cursor-ew-resize shadow-[0_0_20px_#22D3EE] z-20" style="left: 50%;">
+                        <div class="absolute top-1/2 -left-4 w-9 h-9 bg-void border border-neon rounded-full flex items-center justify-center shadow-lg">
+                            <svg class="w-4 h-4 text-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute top-4 left-4 bg-void/80 px-2 py-1 rounded text-[10px] font-mono text-white border border-white/20 z-20">RAW_STRUCTURE</div>
+                    <div class="absolute top-4 right-4 bg-void/80 px-2 py-1 rounded text-[10px] font-mono text-neon border border-neon/50 z-20">FINAL_RENDER</div>
+
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-8 h-8 rounded bg-surface flex items-center justify-center text-neon font-bold font-mono">04</div>
+                    <h2 class="text-2xl font-bold text-white">Performance Metrics</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-panel p-6 rounded text-center border-b-2 border-neon">
+                        <span class="block text-3xl font-bold text-white mb-1">35%</span>
+                        <span class="font-mono text-xs text-concrete uppercase">Heat Reduction</span>
+                    </div>
+                    <div class="glass-panel p-6 rounded text-center border-b-2 border-yellow-500">
+                        <span class="block text-3xl font-bold text-white mb-1">1.2</span>
+                        <span class="font-mono text-xs text-concrete uppercase">U-Value (W/m²K)</span>
+                    </div>
+                    <div class="glass-panel p-6 rounded text-center border-b-2 border-blue-500">
+                        <span class="block text-3xl font-bold text-white mb-1">450</span>
+                        <span class="font-mono text-xs text-concrete uppercase">Panels Optimized</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pt-12 border-t border-surface">
+                <div class="bg-gradient-to-r from-surface to-void p-8 rounded-xl flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Have a similar project?</h3>
+                        <p class="text-concrete text-sm">I am available for freelance facade consultation.</p>
+                    </div>
+                    <a href="#" class="px-6 py-3 bg-neon text-void font-bold font-mono text-xs rounded hover:bg-white transition-colors">
+                        CONTACT_ME
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-void py-8 border-t border-surface mt-12">
+        <div class="max-w-7xl mx-auto px-6 text-center text-concrete text-xs font-mono">
+            © 2026 Designed by Facade_OS
+        </div>
+    </footer>
+
+    <script>
+        const sliderContainer = document.getElementById('sliderContainer');
+        const topImageContainer = document.getElementById('topImageContainer');
+        const sliderHandle = document.getElementById('sliderHandle');
+        let isDragging = false;
+
+        // Function to move slider
+        function moveSlider(e) {
+            const rect = sliderContainer.getBoundingClientRect();
+            // Get X position of mouse/touch relative to container
+            let x = (e.clientX || e.touches[0].clientX) - rect.left;
+            
+            // Clamp values so it doesn't go outside
+            x = Math.max(0, Math.min(x, rect.width));
+            
+            // Calculate percentage
+            const percentage = (x / rect.width) * 100;
+
+            // Update styles
+            topImageContainer.style.width = percentage + "%";
+            sliderHandle.style.left = percentage + "%";
+        }
+
+        // Event Listeners
+        sliderContainer.addEventListener('mousedown', () => isDragging = true);
+        window.addEventListener('mouseup', () => isDragging = false);
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            moveSlider(e);
+        });
+
+        // Touch support for mobile
+        sliderContainer.addEventListener('touchstart', () => isDragging = true);
+        window.addEventListener('touchend', () => isDragging = false);
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            moveSlider(e);
+        });
+
+        // Add a click listener to jump to position
+        sliderContainer.addEventListener('click', (e) => {
+            moveSlider(e);
+        });
+    </script>
+</body>
+</html>
